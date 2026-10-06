@@ -1,0 +1,11 @@
+---
+import { VERDICTS, VERDICT_KEYS, type Verdict } from '../lib/verdict';
+interface Props { verdict: Verdict }
+const { verdict } = Astro.props;
+const order = [...VERDICT_KEYS].reverse(); // weakest → strongest, left → right
+const idx = order.indexOf(verdict);
+---
+<div class="meter" role="img" aria-label={`Evidence verdict: ${VERDICTS[verdict].label}, step ${idx + 1} of ${order.length} on our scale`}>
+  {order.map((k, i) => (<span class={`meter-seg${i === idx ? ` on tone-${VERDICTS[k].tone}` : ''}`} title={VERDICTS[k].label}></span>))}
+  <span class="meter-cap left">Didn't work</span><span class="meter-cap right">Established</span>
+</div>

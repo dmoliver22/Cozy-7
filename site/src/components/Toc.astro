@@ -3,10 +3,27 @@ interface Props { headings: { depth: number; slug: string; text: string }[]; ext
 const { headings, extra = [] } = Astro.props;
 const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
 ---
-<aside class="toc" aria-label="On this page">
+<aside class="toc" aria-label="On this page" data-toc>
   <h2>On this page</h2>
   <ol>
     {items.map((h) => (<li class={h.depth === 3 ? 'sub' : ''}><a href={`#${h.slug}`}>{h.text}</a></li>))}
     {extra.map((e) => (<li><a href={`#${e.slug}`}>{e.text}</a></li>))}
   </ol>
 </aside>
+<script>
+  function init() {
+    const toc = document.querySelector<HTMLElement>('[data-toc]');
+    if (!toc || toc.dataset.ready) return;
+    toc.dataset.ready = '1';
+    const links = [...toc.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')];
+    const targets = links.map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1)))).filter(Boolean) as HTMLElement[];
+    if (!targets.length) return;
+    const setActive = (id: string) => links.forEach((a) => a.classList.toggle('active', a.hash === `#${id}`));
+    const io = new IntersectionObserver((entries) => {
+      const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible[0]) setActive(visible[0].target.id);
+    }, { rootMargin: '-80px 0px -65% 0px', threshold: 0 });
+    targets.forEach((t) => io.observe(t));
+  }
+  document.addEventListener('astro:page-load', init);
+</script>

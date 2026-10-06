@@ -2,10 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
-import { graph, breadcrumbs } from '../lib/schema';
+import { abs } from '../lib/url';
+import { graph, breadcrumbs, ORG_ID } from '../lib/schema';
 import data from '../data/pipeline.json';
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'Drug pipeline', path: '/pipeline/' }];
-const jsonLd = graph(breadcrumbs(crumbs), { '@type': 'Dataset', name: 'Oxytocin drug development pipeline', description: 'Oxytocin-based drugs and analogs in development, with company, indication, stage and next catalyst.', url: new URL('/pipeline/', Astro.site).toString(), dateModified: data.asOf, creator: { '@id': `${Astro.site}#organization` } });
+const jsonLd = graph(breadcrumbs(crumbs), { '@type': 'Dataset', name: 'Oxytocin drug development pipeline', description: 'Oxytocin-based drugs and analogs in development, with company, indication, stage and next catalyst.', url: abs('/pipeline/'), dateModified: data.asOf, creator: { '@id': ORG_ID } });
 ---
 <BaseLayout title="Oxytocin drug pipeline: BHV-1955, TNX-2900, carbetocin and more" description="Every oxytocin-based drug in development as of 2026: Biohaven's BHV-1955 for tinnitus, Tonix's TNX-2900 for Prader-Willi, the failed carbetocin program, merotocin, and compounded generics." path="/pipeline/" jsonLd={jsonLd}>
   <div class="wrap article-head">

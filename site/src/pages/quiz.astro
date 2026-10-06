@@ -60,8 +60,11 @@ const jsonLd = graph(breadcrumbs(crumbs));
   </div>
   <script type="application/json" id="quiz-data" set:html={JSON.stringify(quizData)} />
   <script>
+    function init() {
+    const quiz = document.getElementById('quiz');
+    if (!quiz || quiz.dataset.ready) return;
+    quiz.dataset.ready = '1';
     const data: any[] = JSON.parse(document.getElementById('quiz-data')!.textContent || '[]');
-    const quiz = document.getElementById('quiz')!;
     const steps = [...quiz.querySelectorAll<HTMLElement>('.step')];
     let slug = '';
     const show = (n: number) => { steps.forEach((s) => s.classList.toggle('active', s.dataset.step === String(n))); quiz.scrollIntoView({ block: 'start', behavior: 'smooth' }); };
@@ -94,5 +97,7 @@ const jsonLd = graph(breadcrumbs(crumbs));
         show(3);
       }
     });
+    }
+    document.addEventListener('astro:page-load', init);
   </script>
 </BaseLayout>

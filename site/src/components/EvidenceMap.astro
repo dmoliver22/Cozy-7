@@ -1,0 +1,27 @@
+---
+/** Home-page visualization: every condition placed on the six-step evidence ladder. HTML, not canvas, so it is crawlable and accessible. */
+import { VERDICTS, VERDICT_KEYS, type Verdict } from '../lib/verdict';
+import type { Condition } from '../lib/collections';
+interface Props { conditions: Condition[] }
+const { conditions } = Astro.props;
+const rows = VERDICT_KEYS.map((k) => ({ key: k, v: VERDICTS[k], items: conditions.filter((c) => c.data.verdict === k) }));
+---
+<figure class="emap" aria-labelledby="emap-title">
+  <figcaption id="emap-title"><strong>The evidence ladder.</strong> Every condition people hope oxytocin fixes, placed by the strength of human evidence. Hover or focus a condition for the one-line verdict.</figcaption>
+  <ol class="emap-rows">
+    {rows.map((r) => (
+      <li class={`emap-row tone-${r.v.tone}`}>
+        <div class="emap-label"><span class={`chip chip-${r.v.tone}`}><span class="dot"></span>{r.v.label}</span><span class="emap-meaning">{r.v.meaning}</span></div>
+        <div class="emap-items">
+          {r.items.length === 0 && <span class="emap-empty">No conditions here yet</span>}
+          {r.items.map((c) => (
+            <a class="emap-item" href={`/oxytocin-for/${c.id}/`} aria-describedby={`emap-tip-${c.id}`}>
+              <span class="emap-name">{c.data.condition}</span>
+              <span class="emap-tip" role="tooltip" id={`emap-tip-${c.id}`}>{c.data.oneLiner}</span>
+            </a>
+          ))}
+        </div>
+      </li>
+    ))}
+  </ol>
+</figure>

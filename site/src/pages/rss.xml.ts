@@ -2,6 +2,7 @@ import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
 import { SITE } from '../config';
+import { withBase } from '../lib/url';
 
 export async function GET(context: APIContext) {
   const updates = (await getCollection('updates')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -9,7 +10,7 @@ export async function GET(context: APIContext) {
     title: `${SITE.name} updates`,
     description: 'New oxytocin studies, trial results and what we changed because of them.',
     site: context.site!,
-    items: updates.map((u) => ({ title: u.data.title, description: u.data.description, pubDate: u.data.date, link: `/updates/${u.id}/`, categories: u.data.tags })),
+    items: updates.map((u) => ({ title: u.data.title, description: u.data.description, pubDate: u.data.date, link: withBase(`/updates/${u.id}/`), categories: u.data.tags })),
     customData: `<language>${SITE.language}</language>`,
   });
 }

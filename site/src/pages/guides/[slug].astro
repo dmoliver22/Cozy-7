@@ -29,7 +29,7 @@ const relatedG = guides.filter((g) => d.relatedSlugs.includes(g.id) && g.id !== 
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'Guides', path: '/guides/' }, { name: d.title, path }];
 const jsonLd = graph(
   breadcrumbs(crumbs),
-  article({ path, headline: d.title, description: d.description, published: d.lastReviewed, modified: d.updated, image, medical: { lastReviewed: d.lastReviewed }, section: 'Guides', keywords: ['oxytocin', 'oxytocin nasal spray'], wordCount: entry.body?.split(/\s+/).length }),
+  article({ path, headline: d.title, description: d.description, published: d.lastReviewed, modified: d.updated, image, medical: { lastReviewed: d.lastReviewed }, section: 'Guides', keywords: ['oxytocin', 'oxytocin nasal spray'], wordCount: entry.body?.split(/\s+/).length, citations: d.sources }),
   faqPage(d.faq),
 );
 const p = d.partnerKey !== 'none' ? partners[d.partnerKey as Exclude<PartnerKey, 'none'>] : null;
@@ -47,7 +47,7 @@ const tocExtra = [...(d.faq.length ? [{ slug: 'faq-h', text: 'Questions people a
   </header>
   <div class="wrap layout">
     <article>
-      <div class="prose"><Content /></div>
+      <div class="prose" data-pagefind-body><Content /></div>
       {p && (
         <div class="works" style="margin-top:2.5rem">
           <div class="partner" style="margin-top:0">

@@ -1,7 +1,7 @@
 import { SITE } from '../config';
 import { VERDICTS, type Verdict } from './verdict';
 
-const abs = (p: string) => new URL(p, SITE.url).toString();
+import { abs } from './url';
 export const ORG_ID = `${SITE.url}/#organization`;
 export const SITE_ID = `${SITE.url}/#website`;
 
@@ -69,6 +69,7 @@ interface ArticleOpts {
   section?: string;
   keywords?: string[];
   wordCount?: number;
+  citations?: { title: string; url: string }[];
 }
 
 export function article(o: ArticleOpts) {
@@ -90,6 +91,7 @@ export function article(o: ArticleOpts) {
     ...(o.section ? { articleSection: o.section } : {}),
     ...(o.keywords?.length ? { keywords: o.keywords.join(', ') } : {}),
     ...(o.wordCount ? { wordCount: o.wordCount } : {}),
+    ...(o.citations?.length ? { citation: o.citations.map((c) => ({ '@type': 'CreativeWork', name: c.title, url: c.url })) } : {}),
   };
   if (o.medical) {
     if (o.medical.condition) {

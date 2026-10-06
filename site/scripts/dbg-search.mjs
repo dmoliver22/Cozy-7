@@ -1,0 +1,18 @@
+import { chromium } from 'playwright-core';
+import { readdirSync } from 'node:fs';
+const exe = '/opt/pw-browsers/' + readdirSync('/opt/pw-browsers').find((d) => d.startsWith('chromium-')) + '/chrome-linux/chrome';
+const browser = await chromium.launch({ executablePath: exe, args: ['--no-sandbox'] });
+const page = await browser.newPage();
+page.on('console', (m) => console.log('console', m.type(), m.text().slice(0, 200)));
+page.on('pageerror', (e) => console.log('pageerror', String(e).slice(0, 300)));
+page.on('requestfailed', (r) => console.log('reqfail', r.url(), r.failure()?.errorText));
+page.on('response', (r) => { if (r.url().includes('pagefind')) console.log('resp', r.status(), r.url()); });
+await page.goto('http://127.0.0.1:4321/oxytocin-for/tinnitus/', { waitUntil: 'networkidle' });
+await page.keyboard.press('/');
+await page.waitForSelector('#search[open]');
+await page.type('#search-input', 'tinnitus');
+await page.waitForTimeout(3000);
+console.log('results html:', (await page.innerHTML('#search-results')).slice(0, 300));
+const direct = await page.evaluate(async () => { try { const pf = await import('/pagefind/pagefind.js'); await pf.init(); const r = await pf.search('tinnitus'); return 'direct search results: ' + r.results.length; } catch (e) { return 'direct import error: ' + e; } });
+console.log(direct);
+await browser.close();

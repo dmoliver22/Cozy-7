@@ -3,9 +3,11 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import { SITE } from './site.config.mjs';
 import rehypeCite from './src/lib/rehype-cite.mjs';
+import rehypeAutolink from './src/lib/rehype-autolink.mjs';
 
 export default defineConfig({
   site: SITE.url,
+  base: process.env.BASE_PATH || '/',
   trailingSlash: 'always',
   build: { format: 'directory', inlineStylesheets: 'auto' },
   prefetch: { prefetchAll: false, defaultStrategy: 'hover' },
@@ -18,7 +20,7 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    rehypePlugins: [rehypeCite],
+    rehypePlugins: [rehypeCite, rehypeAutolink],
     shikiConfig: { theme: 'github-light' },
   },
 });

@@ -1,0 +1,67 @@
+---
+import { withBase } from '../lib/url';
+const bundle = withBase('/pagefind/');
+---
+<dialog id="search" class="search" aria-label="Search the site" data-bundle={bundle}>
+  <form method="dialog" class="search-head">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="search-input" type="search" placeholder="Search conditions, trials, guides…" autocomplete="off" aria-label="Search" />
+    <button class="search-close" value="close" aria-label="Close search">Esc</button>
+  </form>
+  <div id="search-results" class="search-results" aria-live="polite"></div>
+  <p class="search-hint">Try “tinnitus”, “deficiency test”, “VA trial”, “cost”. Press <kbd>⌘K</kbd> or <kbd>/</kbd> anywhere to open.</p>
+</dialog>
+<script>
+  type PF = { init: () => Promise<void>; debouncedSearch: (q: string) => Promise<{ results: { data: () => Promise<{ url: string; meta: { title?: string }; excerpt: string }> }[] } | null> };
+  let pf: PF | null = null;
+  async function load(bundle: string) {
+    if (pf) return pf;
+    // Bypass Vite's import rewriting: the Pagefind bundle only exists after the build.
+    const importer = new Function('u', 'return import(u)') as (u: string) => Promise<PF>;
+    pf = await importer(`${bundle}pagefind.js`);
+    await pf.init();
+    return pf;
+  }
+  const getDlg = () => document.getElementById('search') as HTMLDialogElement | null;
+  function openSearch() {
+    const dlg = getDlg(); if (!dlg) return;
+    const input = dlg.querySelector<HTMLInputElement>('#search-input')!;
+    if (!dlg.open) dlg.showModal();
+    input.focus(); input.select();
+    load(dlg.dataset.bundle!);
+  }
+  // Global shortcuts bind once; they look the dialog up at event time so view transitions never leave a stale reference.
+  if (!(window as any).__oxSearchKeys) {
+    (window as any).__oxSearchKeys = true;
+    document.addEventListener('keydown', (e) => {
+      const tag = (e.target as HTMLElement).tagName;
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); openSearch(); }
+      else if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(tag)) { e.preventDefault(); openSearch(); }
+    });
+  }
+  function init() {
+    const dlg = getDlg();
+    if (!dlg || dlg.dataset.ready) return;
+    dlg.dataset.ready = '1';
+    const input = dlg.querySelector<HTMLInputElement>('#search-input')!;
+    const out = dlg.querySelector<HTMLElement>('#search-results')!;
+    document.querySelectorAll('[data-open-search]').forEach((b) => b.addEventListener('click', openSearch));
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+    let t = 0;
+    input.addEventListener('input', () => {
+      clearTimeout(t);
+      t = window.setTimeout(async () => {
+        const q = input.value.trim();
+        if (q.length < 2) { out.innerHTML = ''; return; }
+        const api = await load(dlg.dataset.bundle!);
+        const res = await api.debouncedSearch(q);
+        if (!res) return;
+        const items = await Promise.all(res.results.slice(0, 8).map((r) => r.data()));
+        out.innerHTML = items.length
+          ? items.map((d) => `<a class="search-hit" href="${d.url}"><strong>${d.meta.title ?? 'Untitled'}</strong><span>${d.excerpt}</span></a>`).join('')
+          : `<p class="search-none">Nothing for “${q.replace(/[<>&]/g, '')}”. Try a condition name or a trial number.</p>`;
+      }, 120);
+    });
+  }
+  document.addEventListener('astro:page-load', init);
+</script>

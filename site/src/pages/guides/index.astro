@@ -2,10 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { guidesAll } from '../../lib/collections';
+import { abs } from '../../lib/url';
 import { graph, breadcrumbs } from '../../lib/schema';
 const guides = await guidesAll();
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'Guides', path: '/guides/' }];
-const jsonLd = graph(breadcrumbs(crumbs), { '@type': 'CollectionPage', name: 'Oxytocin guides', url: new URL('/guides/', Astro.site).toString() });
+const jsonLd = graph(breadcrumbs(crumbs), { '@type': 'CollectionPage', name: 'Oxytocin guides', url: abs('/guides/') });
 ---
 <BaseLayout title="Oxytocin guides: nasal spray, safety, cost, and how it works" description="Plain-English guides to oxytocin: what it is, how nasal spray is prescribed and what it costs, side effects, whether it reaches the brain, and what's really in Amazon 'oxytocin' sprays." path="/guides/" jsonLd={jsonLd}>
   <div class="wrap article-head">

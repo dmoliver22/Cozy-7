@@ -4,6 +4,7 @@ import ConditionCard from '../../components/ConditionCard.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { conditionsByStrength } from '../../lib/collections';
 import { VERDICTS, VERDICT_KEYS, type Verdict } from '../../lib/verdict';
+import { abs } from '../../lib/url';
 import { graph, breadcrumbs } from '../../lib/schema';
 
 const conditions = await conditionsByStrength();
@@ -11,8 +12,8 @@ const crumbs = [{ name: 'Home', path: '/' }, { name: 'Conditions', path: '/oxyto
 const jsonLd = graph(breadcrumbs(crumbs), {
   '@type': 'CollectionPage',
   name: 'Oxytocin evidence by condition',
-  url: new URL('/oxytocin-for/', Astro.site).toString(),
-  hasPart: conditions.map((c) => ({ '@type': 'WebPage', name: c.data.title, url: new URL(`/oxytocin-for/${c.id}/`, Astro.site).toString() })),
+  url: abs('/oxytocin-for/'),
+  hasPart: conditions.map((c) => ({ '@type': 'WebPage', name: c.data.title, url: abs(`/oxytocin-for/${c.id}/`) })),
 });
 ---
 <BaseLayout title="Oxytocin evidence by condition: every verdict in one place" description="Does oxytocin help relationships, tinnitus, menopause, anxiety, autism, pain, weight loss or low mood? Our plain-English verdict for each, ranked by evidence strength." path="/oxytocin-for/" jsonLd={jsonLd}>

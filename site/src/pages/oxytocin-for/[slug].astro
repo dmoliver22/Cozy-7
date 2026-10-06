@@ -30,7 +30,7 @@ const related = all.filter((c) => d.relatedSlugs.includes(c.id)).slice(0, 3);
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'Conditions', path: '/oxytocin-for/' }, { name: d.condition, path }];
 const jsonLd = graph(
   breadcrumbs(crumbs),
-  article({ path, headline: d.title, description: d.description, published: d.lastReviewed, modified: d.updated, image, medical: { condition: d.condition, verdict: d.verdict as Verdict, lastReviewed: d.lastReviewed }, section: 'Conditions', keywords: ['oxytocin', d.condition.toLowerCase(), 'intranasal oxytocin', 'evidence'], wordCount: entry.body?.split(/\s+/).length }),
+  article({ path, headline: d.title, description: d.description, published: d.lastReviewed, modified: d.updated, image, medical: { condition: d.condition, verdict: d.verdict as Verdict, lastReviewed: d.lastReviewed }, section: 'Conditions', keywords: ['oxytocin', d.condition.toLowerCase(), 'intranasal oxytocin', 'evidence'], wordCount: entry.body?.split(/\s+/).length, citations: d.sources }),
   faqPage(d.faq),
 );
 const tocExtra = [{ slug: 'what-works', text: `What works for ${d.condition.toLowerCase()}` }, ...(d.faq.length ? [{ slug: 'faq-h', text: 'Questions people ask' }] : []), { slug: 'sources-h', text: 'Sources' }];
@@ -40,7 +40,7 @@ const tocExtra = [{ slug: 'what-works', text: `What works for ${d.condition.toLo
     <div class="wrap">
       <Breadcrumbs items={crumbs} />
       <VerdictBadge verdict={d.verdict as Verdict} />
-      <h1 style="margin-top:.75rem">{d.question}</h1>
+      <h1 style="margin-top:.75rem" transition:name={`cond-${entry.id}`}>{d.question}</h1>
       <p class="dek">{d.description}</p>
       <div class="byline">
         <span>By the {`The Oxytocin Report`.replace('The ', '')} editorial team</span>
@@ -53,7 +53,7 @@ const tocExtra = [{ slug: 'what-works', text: `What works for ${d.condition.toLo
   <div class="wrap layout">
     <article>
       <EvidenceSnapshot verdict={d.verdict as Verdict} oneLiner={d.oneLiner} humanStudies={d.humanStudies} largestStudy={d.largestStudy} activeTrials={d.activeTrials} nextReadout={d.nextReadout} />
-      <div class="prose"><Content /></div>
+      <div class="prose" data-pagefind-body><Content /></div>
       <WhatWorks items={d.whatWorks} partnerKey={d.partnerKey as PartnerKey} condition={d.condition} />
       <Faq items={d.faq} />
       <Sources sources={d.sources} />

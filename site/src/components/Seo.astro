@@ -1,5 +1,6 @@
 ---
 import { SITE } from '../config';
+import { abs } from '../lib/url';
 interface Props {
   title: string;
   description: string;
@@ -13,14 +14,15 @@ interface Props {
   titleTemplate?: boolean;
 }
 const { title, description, path, image = '/og/default.png', type = 'website', published, modified, noindex = false, jsonLd, titleTemplate = true } = Astro.props;
-const canonical = new URL(path, SITE.url).toString();
-const img = new URL(image, SITE.url).toString();
+const canonical = abs(path);
+const img = abs(image);
+const hide = noindex || SITE.preview;
 const fullTitle = titleTemplate && !title.includes(SITE.name) && title.length <= 50 ? `${title} | ${SITE.name}` : title;
 ---
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
-{noindex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
+{hide ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
 <meta property="og:site_name" content={SITE.name} />
 <meta property="og:type" content={type} />
 <meta property="og:title" content={title} />

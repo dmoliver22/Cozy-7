@@ -2,7 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
-import { graph, breadcrumbs } from '../lib/schema';
+import { abs } from '../lib/url';
+import { graph, breadcrumbs, ORG_ID } from '../lib/schema';
 import data from '../data/trials.json';
 import catalysts from '../data/catalysts.json';
 
@@ -21,10 +22,10 @@ const jsonLd = graph(breadcrumbs(crumbs), {
   '@type': 'Dataset',
   name: 'Oxytocin human clinical trial tracker',
   description: 'Registered human trials of oxytocin for non-obstetric uses, with status, sponsor and why each matters.',
-  url: new URL('/trials/', Astro.site).toString(),
+  url: abs('/trials/'),
   dateModified: data.asOf,
   license: 'https://creativecommons.org/licenses/by/4.0/',
-  creator: { '@id': `${Astro.site}#organization` },
+  creator: { '@id': ORG_ID },
 });
 ---
 <BaseLayout title="Oxytocin clinical trial tracker: every active human study" description="Every registered human oxytocin trial for relationships, tinnitus, pain, menopause, PTSD, addiction and deficiency: status, sponsor, expected results, why it matters." path="/trials/" jsonLd={jsonLd}>
@@ -39,15 +40,25 @@ const jsonLd = graph(breadcrumbs(crumbs), {
       {catalysts.map((c) => (<li><span class="when">{c.when}</span><span class="what"><strong>{c.what}</strong>{c.detail} <a href={`/oxytocin-for/${c.slug}/`}>Our verdict →</a></span></li>))}
     </ol>
   </div>
+  <div class="wrap" id="trials">
+    <div class="filters" role="group" aria-label="Filter trials by status">
+      <button class="fbtn" type="button" data-filter="all" aria-pressed="true">All</button>
+      <button class="fbtn" type="button" data-filter="recruiting" aria-pressed="false">Recruiting</button>
+      <button class="fbtn" type="button" data-filter="active" aria-pressed="false">Active</button>
+      <button class="fbtn" type="button" data-filter="completed" aria-pressed="false">Completed, unpublished</button>
+      <button class="fbtn" type="button" data-filter="terminated" aria-pressed="false">Terminated</button>
+      <span class="fcount" data-count>{data.trials.length} trials</span>
+    </div>
+  </div>
   {clusters.map((cl) => (
-    <div class="wrap section" style="padding-top:1rem">
+    <div class="wrap section" style="padding-top:1rem" data-cluster>
       <h2 style="font-size:1.5rem">{cl}</h2>
       <div class="table-wrap">
         <table class="data">
           <thead><tr><th>Trial</th><th>Status</th><th>Sponsor</th><th>Dates</th><th>Why it matters</th></tr></thead>
           <tbody>
             {data.trials.filter((t) => t.cluster === cl).map((t) => (
-              <tr>
+              <tr data-status={statusClass(t.status)}>
                 <td class="nct"><a href={`https://clinicaltrials.gov/study/${t.nct}`} rel="noopener" target="_blank">{t.nct}</a><div style="margin-top:.3rem;color:var(--ink)">{t.title}</div></td>
                 <td><span class={`status status-${statusClass(t.status)}`}>{statusLabel(t.status)}</span><div class="small muted" style="margin-top:.3rem">{t.status}</div></td>
                 <td>{t.sponsor}</td>
@@ -64,4 +75,24 @@ const jsonLd = graph(breadcrumbs(crumbs), {
     <div class="callout"><strong>How we build this.</strong> We pull every study on ClinicalTrials.gov that lists oxytocin as an intervention, exclude labor and obstetric uses, and keep the ones that could change a verdict on this site. Statuses are checked against the registry; dates are the registry's estimates and slip often. Missing one? <a href="/about/#contact">Tell us</a>.</div>
   </div>
   <section class="wrap section"><NewsletterForm compact /></section>
+  <script>
+    function init() {
+      const root = document.getElementById('trials');
+      if (!root || root.dataset.ready) return;
+      root.dataset.ready = '1';
+      const btns = [...root.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+      const rows = [...document.querySelectorAll<HTMLTableRowElement>('tr[data-status]')];
+      const groups = [...document.querySelectorAll<HTMLElement>('[data-cluster]')];
+      const count = root.querySelector('[data-count]')!;
+      btns.forEach((b) => b.addEventListener('click', () => {
+        const f = b.dataset.filter!;
+        btns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+        let n = 0;
+        rows.forEach((r) => { const show = f === 'all' || r.dataset.status === f; r.hidden = !show; if (show) n++; });
+        groups.forEach((g) => { g.hidden = ![...g.querySelectorAll('tr[data-status]')].some((r) => !(r as HTMLElement).hidden); });
+        count.textContent = `${n} ${n === 1 ? 'trial' : 'trials'}`;
+      }));
+    }
+    document.addEventListener('astro:page-load', init);
+  </script>
 </BaseLayout>

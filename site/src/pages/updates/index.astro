@@ -3,11 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
 import { updatesNewest } from '../../lib/collections';
+import { abs } from '../../lib/url';
 import { graph, breadcrumbs } from '../../lib/schema';
 import { fmtDate, isoDate } from '../../lib/format';
 const updates = await updatesNewest();
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'Updates', path: '/updates/' }];
-const jsonLd = graph(breadcrumbs(crumbs), { '@type': 'CollectionPage', name: 'Oxytocin research updates', url: new URL('/updates/', Astro.site).toString() });
+const jsonLd = graph(breadcrumbs(crumbs), { '@type': 'CollectionPage', name: 'Oxytocin research updates', url: abs('/updates/') });
 ---
 <BaseLayout title="Oxytocin research updates: new trials, results and what changed" description="A dated log of new oxytocin studies, trial results, drug-pipeline news and the pages we updated because of them." path="/updates/" jsonLd={jsonLd}>
   <div class="wrap article-head">

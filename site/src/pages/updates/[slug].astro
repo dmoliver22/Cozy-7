@@ -36,7 +36,7 @@ const jsonLd = graph(breadcrumbs(crumbs), article({ path, headline: d.title, des
   </header>
   <div class="wrap layout">
     <article>
-      <div class="prose"><Content /></div>
+      <div class="prose" data-pagefind-body><Content /></div>
       <Sources sources={d.sources} />
     </article>
     <aside class="toc">

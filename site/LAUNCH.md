@@ -9,8 +9,10 @@ This folder is a complete, production-ready static site. Build it, point a domai
 | Pages | 51 pages: 13 condition verdicts (`/oxytocin-for/<slug>/`), 8 guides, 6 dated updates, a 2-question quiz, trial tracker, drug pipeline, about, editorial policy, disclosure, privacy, medical disclaimer, newsletter, 404 |
 | Content | ~43,000 words. Every statistic has a numbered inline citation that links to the Sources list. No dosing advice, no seller brands in body copy, no research-chemical links. A linter (`npm run lint:content`) enforces the spec in `content-brief/CONTENT_SPEC.md` |
 | SEO | Canonical URLs, unique titles and meta descriptions, Open Graph and Twitter cards with a generated 1200x630 image per page, JSON-LD on every page (Organization, WebSite, BreadcrumbList, Article+MedicalWebPage with `about: MedicalCondition`, FAQPage, NewsArticle, Dataset for the trackers), XML sitemap, RSS feed, robots.txt that blocks the `/go/` redirect folder, clean trailing-slash URLs |
+| Interaction | App-like page transitions (Astro view transitions), instant site search (Pagefind, press / or Cmd+K), the home-page evidence ladder, a verdict meter on every condition page, trial-tracker filters, a reading-progress bar and a table of contents that follows you |
 | Performance | Lighthouse 100/100/100/100 (performance, accessibility, best practices, SEO) on desktop for home and condition pages. Zero JavaScript except the theme toggle, mobile menu and quiz. Self-hosted variable fonts |
 | Design | Warm editorial system: Fraunces display serif, Inter body, light and dark themes, six color-coded evidence verdicts, evidence snapshot tiles, sticky table of contents, mobile-first |
+| AI-search readiness | `/llms.txt` site map for answer engines, Article `citation` markup listing every source, automatic first-mention links between condition pages |
 | Monetization plumbing | Every "find help" button routes through `/go/<partnerKey>/`, a noindexed redirect whose destination you set in `src/lib/partners.ts`. Links render with `rel="sponsored nofollow"` when a real URL is set. Disclosure text appears beside every block automatically |
 
 ## 2. Before you deploy: six placeholders
@@ -21,6 +23,12 @@ This folder is a complete, production-ready static site. Build it, point a domai
 4. **Partner links** in `src/lib/partners.ts`. Leave `url: ''` for any route you have no partner for; the button falls back to an internal page and the disclosure says so. See section 5.
 5. **Medical reviewer.** Leave `medicalReviewer: null` until a real, named, credentialed person has actually reviewed pages. The site already says "pending" honestly. Never fake this; it is the single most damaging thing a health site can do.
 6. **Social handle** (optional) in `twitter`.
+
+## 3a. See it live first (one click)
+
+A GitHub Actions workflow (`.github/workflows/pages.yml`) builds a **preview** of the site on every push and publishes it to GitHub Pages at `https://dmoliver22.github.io/Cozy-7/`. The preview is built with `noindex` and a `Disallow: /` robots file so Google never confuses it with your real domain.
+
+To turn it on once: open the repository on GitHub → Settings → Pages → under "Build and deployment" set Source to **GitHub Actions**. Then re-run the "Deploy preview to GitHub Pages" workflow from the Actions tab (or push any commit). The URL appears in the workflow summary.
 
 ## 3. Deploy (10 minutes)
 
@@ -42,7 +50,8 @@ After the first deploy:
 cd site
 npm install
 npm run dev          # http://localhost:4321
-npm run build        # outputs dist/
+npm run build        # outputs dist/ with the search index
+npm run build:preview # same, but for the GitHub Pages preview URL
 npm run lint:content # checks every Markdown file against the content spec
 npm run check:links  # verifies every internal link in dist/
 ```

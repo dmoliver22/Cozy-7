@@ -5,12 +5,13 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && pagefind --site dist && node scripts/apply-base.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "lint:content": "node scripts/lint-content.mjs",
     "check:links": "node scripts/check-links.mjs",
-    "screenshots": "node scripts/screenshots.mjs"
+    "screenshots": "node scripts/screenshots.mjs",
+    "build:preview": "BASE_PATH=/Cozy-7/ SITE_URL=https://dmoliver22.github.io PREVIEW=1 npm run build"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.1",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "lighthouse": "^13.5.0",
+    "pagefind": "^1.5.2",
     "playwright-core": "^1.63.0"
   }
 }

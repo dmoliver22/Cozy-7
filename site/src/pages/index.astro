@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ConditionCard from '../components/ConditionCard.astro';
+import EvidenceMap from '../components/EvidenceMap.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import { conditionsFeatured, updatesNewest } from '../lib/collections';
 import { graph } from '../lib/schema';
@@ -33,6 +34,10 @@ const jsonLd = graph();
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="section" style="padding-top:.5rem">
+    <div class="wrap"><EvidenceMap conditions={conditions} /></div>
   </section>
 
   <section class="section">

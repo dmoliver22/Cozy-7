@@ -1,5 +1,6 @@
 ---
 import { VERDICTS, type Verdict } from '../lib/verdict';
+import VerdictMeter from './VerdictMeter.astro';
 interface Props { verdict: Verdict; oneLiner: string; humanStudies: number; largestStudy: string; activeTrials: number; nextReadout: string }
 const { verdict, oneLiner, humanStudies, largestStudy, activeTrials, nextReadout } = Astro.props;
 const v = VERDICTS[verdict];
@@ -8,6 +9,7 @@ const v = VERDICTS[verdict];
   <div>
     <div class="lbl">Our evidence verdict</div>
     <p class="one">{oneLiner}</p>
+    <VerdictMeter verdict={verdict} />
     <p style="margin:.6rem 0 0" class="small muted">{v.label}: {v.meaning} <a href="/editorial-policy/#verdicts">How we rate evidence</a></p>
   </div>
 </div>

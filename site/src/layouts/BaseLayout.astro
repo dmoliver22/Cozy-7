@@ -5,6 +5,12 @@ import '../styles/global.css';
 import Seo from '../components/Seo.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SearchDialog from '../components/SearchDialog.astro';
+import ReadingProgress from '../components/ReadingProgress.astro';
+import { ClientRouter } from 'astro:transitions';
+import frauncesUrl from '@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2?url';
+import interUrl from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import { withBase } from '../lib/url';
 import { SITE } from '../config';
 
 interface Props {
@@ -26,20 +32,25 @@ const props = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script is:inline>
+    <script is:inline data-astro-rerun>
       (function () { try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {} })();
     </script>
+    <link rel="preload" as="font" type="font/woff2" href={frauncesUrl} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={interUrl} crossorigin />
+    <ClientRouter />
     <Seo {...props} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="alternate" type="application/rss+xml" title={`${SITE.name} updates`} href="/rss.xml" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.name} updates`} href={withBase('/rss.xml')} />
+    <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
     <meta name="theme-color" content="#FBF7F2" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#171613" media="(prefers-color-scheme: dark)" />
     <slot name="head" />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
+    <ReadingProgress />
     <Header />
+    <SearchDialog />
     <main id="main">
       <slot />
     </main>

@@ -2,10 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
+import { abs } from '../lib/url';
 import { graph, breadcrumbs } from '../lib/schema';
 import { SITE } from '../config';
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }];
-const jsonLd = graph(breadcrumbs(crumbs), { '@type': 'AboutPage', name: `About ${SITE.name}`, url: new URL('/about/', Astro.site).toString() });
+const jsonLd = graph(breadcrumbs(crumbs), { '@type': 'AboutPage', name: `About ${SITE.name}`, url: abs('/about/') });
 ---
 <BaseLayout title="About The Oxytocin Report" description="Why we built an oxytocin site that doesn't sell oxytocin, how we read the research, how we make money, and how to reach us." path="/about/" jsonLd={jsonLd}>
   <div class="wrap-narrow article-head">
