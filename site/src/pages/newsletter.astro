@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import { graph, breadcrumbs } from '../lib/schema';
+import catalysts from '../data/catalysts.json';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Newsletter', path: '/newsletter/' }];
+---
+<BaseLayout title="The Oxytocin Report newsletter: one email when the evidence changes" description="Get a short, plain-English email when an oxytocin trial reads out or a verdict changes. No sprays, no supplements, no weekly filler." path="/newsletter/" jsonLd={graph(breadcrumbs(crumbs))}>
+  <div class="wrap-narrow article-head"><Breadcrumbs items={crumbs} /><h1>One email when something actually changes</h1><p class="dek">We don't send weekly filler. We send a note when a trial reads out, a verdict moves, or a regulator acts. Here is what's coming.</p></div>
+  <div class="wrap-narrow" style="margin-bottom:2rem">
+    <ol class="timeline">{catalysts.map((c) => (<li><span class="when">{c.when}</span><span class="what"><strong>{c.what}</strong>{c.detail}</span></li>))}</ol>
+  </div>
+  <section class="wrap-narrow section" style="padding-top:0"><NewsletterForm /></section>
+</BaseLayout>

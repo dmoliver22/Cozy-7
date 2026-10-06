@@ -1,0 +1,49 @@
+---
+import { SITE } from '../config';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="/"><span class="mark" aria-hidden="true"></span>{SITE.name}</a>
+        <p style="margin-top:.9rem; max-width: 36ch;">{SITE.tagline} We read every human study so you don't have to, and we don't sell oxytocin.</p>
+      </div>
+      <div>
+        <p class="ft-h">Conditions</p>
+        <ul>
+          <li><a href="/oxytocin-for/marriage-and-relationships/">Marriage & relationships</a></li>
+          <li><a href="/oxytocin-for/tinnitus/">Tinnitus</a></li>
+          <li><a href="/oxytocin-for/menopause/">Menopause</a></li>
+          <li><a href="/oxytocin-for/oxytocin-deficiency/">Low oxytocin</a></li>
+          <li><a href="/oxytocin-for/">All conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-h">Guides</p>
+        <ul>
+          <li><a href="/guides/what-is-oxytocin/">What oxytocin is</a></li>
+          <li><a href="/guides/oxytocin-nasal-spray/">Nasal spray explained</a></li>
+          <li><a href="/guides/side-effects-and-safety/">Side effects & safety</a></li>
+          <li><a href="/guides/amazon-oxytocin-sprays/">Amazon "oxytocin" sprays</a></li>
+          <li><a href="/guides/">All guides</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-h">Site</p>
+        <ul>
+          <li><a href="/trials/">Trial tracker</a></li>
+          <li><a href="/pipeline/">Drug pipeline</a></li>
+          <li><a href="/updates/">Updates</a></li>
+          <li><a href="/newsletter/">Newsletter</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/editorial-policy/">How we rate evidence</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; {year} {SITE.name}. Information, not medical advice. Talk to a clinician who knows your history.</span>
+      <span><a href="/disclosure/">Disclosure</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/medical-disclaimer/">Medical disclaimer</a> &middot; <a href="/rss.xml">RSS</a></span>
+    </div>
+  </div>
+</footer>

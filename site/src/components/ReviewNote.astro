@@ -1,0 +1,12 @@
+---
+import { SITE } from '../config';
+import { fmtDate } from '../lib/format';
+interface Props { lastReviewed: Date; updated: Date }
+const { lastReviewed, updated } = Astro.props;
+---
+<div class="review-note">
+  <strong>How this page is maintained.</strong> Evidence last reviewed {fmtDate(lastReviewed)}; page updated {fmtDate(updated)}. We re-review when a new human trial or systematic review publishes, and we log every change on our <a href="/updates/">updates page</a>.
+  {SITE.medicalReviewer
+    ? <span> Medically reviewed by {SITE.medicalReviewer.name}, {SITE.medicalReviewer.credentials}.</span>
+    : <span> Independent physician review: <em>pending</em>. We are recruiting a named, credentialed reviewer and will not list one until we have one. <a href="/editorial-policy/">Editorial policy</a>.</span>}
+</div>

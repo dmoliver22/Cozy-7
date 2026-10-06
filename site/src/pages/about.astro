@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import { graph, breadcrumbs } from '../lib/schema';
+import { SITE } from '../config';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }];
+const jsonLd = graph(breadcrumbs(crumbs), { '@type': 'AboutPage', name: `About ${SITE.name}`, url: new URL('/about/', Astro.site).toString() });
+---
+<BaseLayout title="About The Oxytocin Report" description="Why we built an oxytocin site that doesn't sell oxytocin, how we read the research, how we make money, and how to reach us." path="/about/" jsonLd={jsonLd}>
+  <div class="wrap-narrow article-head">
+    <Breadcrumbs items={crumbs} />
+    <h1>An oxytocin site with nothing to sell you</h1>
+    <p class="dek">We exist because every other page about oxytocin is written by someone who profits if you buy it.</p>
+  </div>
+  <div class="wrap-narrow prose" style="margin-bottom:3rem">
+    <h2>Why this site exists</h2>
+    <p>In 2026, oxytocin became a product. Telehealth companies sell compounded nasal spray for $99 to $206 a month as a fix for intimacy, stress, mood and "connection." Podcasts pitch it as a marriage saver. Meanwhile the actual human trials keep landing: 100 people with alcohol problems, no benefit. 733 autistic children across 12 trials, no benefit. 96 couples in therapy, no benefit beyond therapy alone.</p>
+    <p>Nobody was putting those two facts on the same page. Sellers won't. Journals can't be read by normal people. So we built the page.</p>
+    <h2>What we do</h2>
+    <ul>
+      <li><strong>One verdict per problem.</strong> For every condition people hope oxytocin fixes, we read every human study, give a plain-English verdict, and show the numbers.</li>
+      <li><strong>Track every trial.</strong> We watch the registry and update the relevant page the week a result publishes. The <a href="/trials/">trial tracker</a> and <a href="/updates/">updates log</a> are public.</li>
+      <li><strong>Point to what works.</strong> Behind every oxytocin search is a real problem. We say what has evidence for that problem, even when the answer is "couples therapy" or "a hearing test" and not a molecule.</li>
+    </ul>
+    <h2>What we don't do</h2>
+    <ul>
+      <li>We don't sell oxytocin, supplements, or "boosters," and we never will.</li>
+      <li>We don't recommend doses. We report what trials used.</li>
+      <li>We don't link to "research use only" vendors, Amazon sprays, or anyone selling oxytocin without a prescription.</li>
+      <li>We don't take per-patient referral fees from clinics or therapists.</li>
+    </ul>
+    <h2>How we make money</h2>
+    <p>Three ways, all listed on our <a href="/disclosure/">disclosure page</a>: flat-fee sponsorships from licensed pharmacies and certified telehealth services, disclosed referral links to the proven alternatives we recommend (therapy platforms, menopause and pain clinics), and reader support through our newsletter. Sponsors never see content before publication and cannot change a verdict. If a sponsor's product has a negative verdict, the verdict stays.</p>
+    <h2>Who writes this</h2>
+    <p>The Oxytocin Report is an independent publication. Research and drafting use software tools, including AI, under human editorial direction; every study cited is checked against the primary source before publishing, and every page lists its sources. We are recruiting a named, credentialed physician reviewer and will not list one until we have one. Our full method is on the <a href="/editorial-policy/">editorial policy</a> page.</p>
+    <h2 id="contact">Contact and corrections</h2>
+    <p>Found an error, a trial we missed, or a study we misread? Email <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>. We correct quickly and log corrections on the <a href="/updates/">updates page</a>.</p>
+  </div>
+  <section class="wrap section"><NewsletterForm compact /></section>
+</BaseLayout>

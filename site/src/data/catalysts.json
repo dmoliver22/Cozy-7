@@ -1,0 +1,9 @@
+[
+  { "when": "Dec 2026", "what": "OxyPLEASURE trial reaches primary completion", "detail": "Basel. Intranasal oxytocin and sexual well-being in people with arginine-vasopressin deficiency (NCT06808516).", "slug": "oxytocin-deficiency" },
+  { "when": "Early 2027", "what": "Chronic pain crossover trial results", "detail": "Memorial University of Newfoundland. About 336 people, 24 IU vs 48 IU vs placebo (NCT04903002). Primary completion was due around March 2026; publication pending.", "slug": "chronic-pain" },
+  { "when": "Feb 2027", "what": "PHOENIX stimulation-test study completes", "detail": "Basel. Can oral estrogens safely provoke oxytocin release, as a diagnostic test for deficiency? (NCT07361263)", "slug": "oxytocin-deficiency" },
+  { "when": "Q1 2027", "what": "TNX-2900 Phase 2 in Prader-Willi syndrome planned to start", "detail": "Tonix. Magnesium-potentiated intranasal oxytocin, ages 8 to 17.5, three doses vs placebo.", "slug": "weight-loss" },
+  { "when": "Sept 2027", "what": "OxyMENO study completes", "detail": "Basel. Neurophysin-I, a stand-in for oxytocin, in postmenopausal vs premenopausal women (NCT07742124).", "slug": "menopause" },
+  { "when": "2028", "what": "VA couples-therapy PTSD trial expected to complete", "detail": "VA San Diego. Oxytocin before each of eight couples-therapy sessions, about 240 participants (NCT06194851).", "slug": "marriage-and-relationships" },
+  { "when": "Unknown", "what": "Biohaven files to test BHV-1955 in humans", "detail": "Long-acting intranasal oxytocin for tinnitus. Still preclinical as of the May 2026 R&D Day.", "slug": "tinnitus" }
+]

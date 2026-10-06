@@ -1,0 +1,55 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Sources from '../../components/Sources.astro';
+import ConditionCard from '../../components/ConditionCard.astro';
+import NewsletterForm from '../../components/NewsletterForm.astro';
+import { graph, breadcrumbs, article } from '../../lib/schema';
+import { fmtDate, isoDate } from '../../lib/format';
+import type { Verdict } from '../../lib/verdict';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('updates');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+const path = `/updates/${entry.id}/`;
+const image = `/og/updates/${entry.id}.png`;
+const conditions = await getCollection('conditions');
+const guides = await getCollection('guides');
+const affectedC = conditions.filter((c) => d.affects.includes(c.id));
+const affectedG = guides.filter((g) => d.affects.includes(g.id));
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Updates', path: '/updates/' }, { name: d.title, path }];
+const jsonLd = graph(breadcrumbs(crumbs), article({ path, headline: d.title, description: d.description, published: d.date, modified: d.date, image, type: 'NewsArticle', section: 'Updates', keywords: ['oxytocin', ...d.tags] }));
+---
+<BaseLayout title={d.title} description={d.description} path={path} image={image} type="article" published={d.date} modified={d.date} jsonLd={jsonLd}>
+  <header class="article-head">
+    <div class="wrap">
+      <Breadcrumbs items={crumbs} />
+      <span class="tag">Update · <time datetime={isoDate(d.date)}>{fmtDate(d.date)}</time></span>
+      <h1 style="margin-top:.5rem">{d.title}</h1>
+      <p class="dek">{d.description}</p>
+    </div>
+  </header>
+  <div class="wrap layout">
+    <article>
+      <div class="prose"><Content /></div>
+      <Sources sources={d.sources} />
+    </article>
+    <aside class="toc">
+      <h2>Pages affected</h2>
+      <ol>
+        {affectedC.map((c) => (<li><a href={`/oxytocin-for/${c.id}/`}>{c.data.condition}</a></li>))}
+        {affectedG.map((g) => (<li><a href={`/guides/${g.id}/`}>{g.data.title}</a></li>))}
+        {affectedC.length + affectedG.length === 0 && <li><a href="/updates/">All updates</a></li>}
+      </ol>
+    </aside>
+  </div>
+  {affectedC.length > 0 && (
+    <section class="wrap related"><h2>Updated verdicts</h2><div class="grid grid-3">{affectedC.map((c) => (<ConditionCard slug={c.id} condition={c.data.condition} question={c.data.question} oneLiner={c.data.oneLiner} verdict={c.data.verdict as Verdict} humanStudies={c.data.humanStudies} activeTrials={c.data.activeTrials} />))}</div></section>
+  )}
+  <section class="wrap section"><NewsletterForm compact /></section>
+</BaseLayout>

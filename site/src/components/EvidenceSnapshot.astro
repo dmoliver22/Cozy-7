@@ -1,0 +1,19 @@
+---
+import { VERDICTS, type Verdict } from '../lib/verdict';
+interface Props { verdict: Verdict; oneLiner: string; humanStudies: number; largestStudy: string; activeTrials: number; nextReadout: string }
+const { verdict, oneLiner, humanStudies, largestStudy, activeTrials, nextReadout } = Astro.props;
+const v = VERDICTS[verdict];
+---
+<div class="verdict-box" style={`--vb: var(--v-${v.tone})`}>
+  <div>
+    <div class="lbl">Our evidence verdict</div>
+    <p class="one">{oneLiner}</p>
+    <p style="margin:.6rem 0 0" class="small muted">{v.label}: {v.meaning} <a href="/editorial-policy/#verdicts">How we rate evidence</a></p>
+  </div>
+</div>
+<dl class="snapshot" aria-label="Evidence at a glance">
+  <div class="cell"><dt class="k">Human studies</dt><dd class="v" style="margin:0">{humanStudies}</dd></div>
+  <div class="cell"><dt class="k">Largest study</dt><dd class="v small" style="margin:0">{largestStudy}</dd></div>
+  <div class="cell"><dt class="k">Active trials</dt><dd class="v" style="margin:0">{activeTrials}</dd></div>
+  <div class="cell"><dt class="k">Next result expected</dt><dd class="v small" style="margin:0">{nextReadout || 'None scheduled'}</dd></div>
+</dl>

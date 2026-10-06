@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { partners } from '../lib/partners';
+import { graph, breadcrumbs } from '../lib/schema';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Disclosure', path: '/disclosure/' }];
+const jsonLd = graph(breadcrumbs(crumbs));
+const active = Object.entries(partners).filter(([, p]) => p.url);
+---
+<BaseLayout title="Disclosure: how The Oxytocin Report makes money" description="Our sponsorship and referral policy in plain language: flat fees only, no per-patient payments, no product sales, no research-chemical links, and a public list of every partner." path="/disclosure/" jsonLd={jsonLd}>
+  <div class="wrap-narrow article-head">
+    <Breadcrumbs items={crumbs} />
+    <h1>How we make money</h1>
+    <p class="dek">Short version: flat fees from licensed companies, disclosed referral links to proven alternatives, and readers. Never a cut of your prescription.</p>
+  </div>
+  <div class="wrap-narrow prose" style="margin-bottom:3rem">
+    <h2>Rules we follow</h2>
+    <ul>
+      <li><strong>We sell no product.</strong> No oxytocin, no supplements, no "boosters."</li>
+      <li><strong>Flat fees only.</strong> Sponsorships are a fixed monthly amount. We never accept payment per patient, per lead, per prescription or per booking from any clinic, therapist, pharmacy or lab.</li>
+      <li><strong>Licensed partners only.</strong> Pharmacy and telehealth sponsors must be licensed and, where it applies, certified by a recognized verification program. We never link to "research use only" peptide vendors or to unregulated sprays.</li>
+      <li><strong>Marked and separated.</strong> Referral links are labeled, carry the sponsored link attribute search engines expect, and pass through a /go/ redirect that is excluded from search indexing.</li>
+      <li><strong>No influence on verdicts.</strong> Partners never see pages before publication. A negative verdict stays negative even if the partner sells the product.</li>
+    </ul>
+    <h2>Current partners</h2>
+    {active.length ? (
+      <ul>{active.map(([k, p]) => (<li><strong>{p.cta}</strong> ({k}): referral partner.</li>))}</ul>
+    ) : (
+      <p>None yet. Every "find help" button on the site currently links to our own guides. When we sign a partner, they will be listed here with the date.</p>
+    )}
+    <h2>Why we link to therapy and clinics instead of oxytocin</h2>
+    <p>Because that is where the evidence is. If oxytocin trials start showing benefit for a condition, our verdict will change and so will the buttons. Until then, sending you to the thing that works is the whole point of the site.</p>
+    <h2>Questions</h2>
+    <p>Ask us anything about this policy at the address on the <a href="/about/#contact">about page</a>.</p>
+  </div>
+</BaseLayout>

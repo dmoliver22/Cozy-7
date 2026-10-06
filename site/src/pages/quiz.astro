@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { conditionsFeatured } from '../lib/collections';
+import { VERDICTS, type Verdict } from '../lib/verdict';
+import { partners, partnerHref, type PartnerKey } from '../lib/partners';
+import { graph, breadcrumbs } from '../lib/schema';
+
+const conditions = await conditionsFeatured();
+const quizData = conditions.map((c) => {
+  const v = VERDICTS[c.data.verdict as Verdict];
+  const pk = c.data.partnerKey as PartnerKey;
+  const p = pk !== 'none' ? partners[pk] : null;
+  return {
+    slug: c.id, condition: c.data.condition, question: c.data.question, oneLiner: c.data.oneLiner,
+    verdict: v.label, tone: v.tone, humanStudies: c.data.humanStudies, activeTrials: c.data.activeTrials, nextReadout: c.data.nextReadout,
+    works: c.data.whatWorks.slice(0, 2), partner: p ? { heading: p.heading, cta: p.cta, href: partnerHref(pk), external: !!p.url } : null,
+  };
+});
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Quiz', path: '/quiz/' }];
+const jsonLd = graph(breadcrumbs(crumbs));
+---
+<BaseLayout title="Should you try oxytocin? A 30-second honest answer" description="Tell us what you hope oxytocin will help with and whether you've tried it. We give you the evidence verdict, the studies behind it, and what actually works for your situation." path="/quiz/" jsonLd={jsonLd}>
+  <div class="wrap-narrow article-head">
+    <Breadcrumbs items={crumbs} />
+    <h1>Should you try oxytocin?</h1>
+    <p class="dek">Two questions. No email required. You get the straight evidence verdict for your situation and the thing most likely to actually help.</p>
+  </div>
+  <div class="wrap-narrow">
+    <div class="quiz" id="quiz">
+      <div class="step active" data-step="1">
+        <div class="progress">Question 1 of 2</div>
+        <p class="q">What are you hoping oxytocin will help with?</p>
+        <div class="opts">
+          {quizData.map((c) => (<button class="opt" type="button" data-slug={c.slug}>{c.condition}</button>))}
+          <a class="opt" href="/guides/what-is-oxytocin/" style="text-decoration:none">I'm just curious what it does</a>
+          <a class="opt" href="/oxytocin-for/" style="text-decoration:none">Something else</a>
+        </div>
+      </div>
+      <div class="step" data-step="2">
+        <div class="progress">Question 2 of 2</div>
+        <p class="q">Have you tried oxytocin already?</p>
+        <div class="opts">
+          <button class="opt" type="button" data-tried="no">No, I'm researching</button>
+          <button class="opt" type="button" data-tried="nothing">Yes, and I didn't notice much</button>
+          <button class="opt" type="button" data-tried="helped">Yes, and it seemed to help</button>
+          <button class="opt" type="button" data-tried="offered">A clinic or website offered me a prescription</button>
+        </div>
+        <button class="back" type="button" data-back="1">← Back</button>
+      </div>
+      <div class="step" data-step="3">
+        <div class="progress">Your answer</div>
+        <div class="result" id="result"></div>
+        <button class="back" type="button" data-back="1">← Start over</button>
+      </div>
+    </div>
+    <noscript>
+      <p class="callout" style="margin-top:1rem">This quiz needs JavaScript. You can go straight to the verdicts: {quizData.map((c, i) => (<span><a href={`/oxytocin-for/${c.slug}/`}>{c.condition}</a>{i < quizData.length - 1 ? ', ' : ''}</span>))}.</p>
+    </noscript>
+  </div>
+  <script type="application/json" id="quiz-data" set:html={JSON.stringify(quizData)} />
+  <script>
+    const data: any[] = JSON.parse(document.getElementById('quiz-data')!.textContent || '[]');
+    const quiz = document.getElementById('quiz')!;
+    const steps = [...quiz.querySelectorAll<HTMLElement>('.step')];
+    let slug = '';
+    const show = (n: number) => { steps.forEach((s) => s.classList.toggle('active', s.dataset.step === String(n))); quiz.scrollIntoView({ block: 'start', behavior: 'smooth' }); };
+    const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
+    const notes: Record<string, string> = {
+      no: 'Good instinct to look first. Most people who try oxytocin for this are paying $100 to $200 a month for something the trials below have not shown to work.',
+      nothing: 'That matches the research. In healthy adults, a single dose of nasal oxytocin usually produces no noticeable feeling, and most trials find no effect on the outcome people care about.',
+      helped: 'That is worth taking seriously, and worth being careful with. Expectation, context and what you did alongside it (the 2026 couples study found affectionate touch, not the spray alone, carried the benefit) all shape how it feels. Read the safety guide before continuing, and tell your prescriber.',
+      offered: 'Compounded oxytocin is legal to prescribe off-label, but it is not FDA-approved for any of these uses and the seller’s claims are not evidence. Read the verdict below and our guide to getting it safely before you pay.',
+    };
+    quiz.addEventListener('click', (e) => {
+      const t = (e.target as HTMLElement).closest('button') as HTMLButtonElement | null;
+      if (!t) return;
+      if (t.dataset.slug) { slug = t.dataset.slug; show(2); return; }
+      if (t.dataset.back) { show(Number(t.dataset.back)); return; }
+      if (t.dataset.tried) {
+        const c = data.find((x) => x.slug === slug);
+        if (!c) { show(1); return; }
+        const works = c.works.map((w: any) => `<li><strong>${esc(w.name)}</strong><span>${esc(w.why)}</span></li>`).join('');
+        const partner = c.partner ? `<div class="partner"><h3>${esc(c.partner.heading)}</h3><div class="row"><a class="btn btn-dark" href="${c.partner.href}" ${c.partner.external ? 'rel="sponsored nofollow noopener" target="_blank"' : ''}>${esc(c.partner.cta)}</a><span class="disc">${c.partner.external ? 'Sponsored link. Flat fee, never per patient.' : 'Goes to our own guide.'} <a href="/disclosure/">Disclosure</a></span></div></div>` : '';
+        document.getElementById('result')!.innerHTML = `
+          <span class="chip chip-${c.tone}"><span class="dot"></span>${esc(c.verdict)}</span>
+          <h2 style="margin:.25rem 0 0">${esc(c.question)}</h2>
+          <p style="font-size:1.15rem;margin:0">${esc(c.oneLiner)}</p>
+          <p class="muted small" style="margin:0">${c.humanStudies} human ${c.humanStudies === 1 ? 'study' : 'studies'} · ${c.activeTrials} active ${c.activeTrials === 1 ? 'trial' : 'trials'}${c.nextReadout ? ' · next result ' + esc(c.nextReadout) : ''}</p>
+          <div class="callout">${notes[t.dataset.tried!]}</div>
+          <a class="btn btn-primary" href="/oxytocin-for/${c.slug}/">Read the full verdict and studies</a>
+          <div class="works" style="margin-top:.5rem"><h2 style="font-size:1.3rem">What actually works for ${esc(c.condition.toLowerCase())}</h2><ol>${works}</ol>${partner}</div>
+          <p class="small muted" style="margin:0">Also useful: <a href="/guides/side-effects-and-safety/">side effects and safety</a> · <a href="/guides/cost-and-where-to-get-it/">what it costs</a> · <a href="/guides/oxytocin-nasal-spray/">how it's prescribed</a></p>`;
+        show(3);
+      }
+    });
+  </script>
+</BaseLayout>

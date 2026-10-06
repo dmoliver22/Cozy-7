@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { conditionsFeatured } from '../lib/collections';
+const conditions = await conditionsFeatured();
+---
+<BaseLayout title="Page not found" description="That page doesn't exist. Here are the oxytocin verdicts people look for most." path="/404/" noindex={true}>
+  <div class="wrap-narrow article-head"><h1>That page isn't here</h1><p class="dek">But the answer you wanted probably is. Pick the problem you were hoping oxytocin would help with.</p>
+    <div class="ask"><div class="chips">{conditions.map((c) => (<a href={`/oxytocin-for/${c.id}/`}>{c.data.condition}</a>))}<a href="/">Home</a></div></div>
+  </div>
+</BaseLayout>

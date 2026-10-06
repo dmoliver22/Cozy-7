@@ -1,0 +1,24 @@
+---
+import { partners, partnerHref, type PartnerKey } from '../lib/partners';
+interface Props { items: { name: string; why: string }[]; partnerKey: PartnerKey; condition: string }
+const { items, partnerKey, condition } = Astro.props;
+const p = partnerKey !== 'none' ? partners[partnerKey] : null;
+const isExternal = !!p?.url;
+---
+<section class="works" id="what-works" aria-labelledby="what-works-h">
+  <h2 id="what-works-h">What actually works for {condition.toLowerCase()}</h2>
+  <p class="muted" style="margin:0">These are the approaches with real human evidence behind them. Start here before you spend money on anything unproven.</p>
+  <ol>
+    {items.map((it) => (<li><strong>{it.name}</strong><span>{it.why}</span></li>))}
+  </ol>
+  {p && (
+    <div class="partner">
+      <h3>{p.heading}</h3>
+      <p>{p.blurb}</p>
+      <div class="row">
+        <a class="btn btn-dark" href={partnerHref(partnerKey)} rel={isExternal ? 'sponsored nofollow noopener' : undefined} target={isExternal ? '_blank' : undefined}>{p.cta}{isExternal ? ' ↗' : ''}</a>
+        <span class="disc">{isExternal ? 'Sponsored link. We may earn a flat referral fee, never per patient. It does not change our verdicts.' : 'No partner yet for this route. The link goes to our own guide.'} <a href="/disclosure/">Disclosure</a></span>
+      </div>
+    </div>
+  )}
+</section>

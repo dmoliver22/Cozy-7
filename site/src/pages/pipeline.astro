@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import { graph, breadcrumbs } from '../lib/schema';
+import data from '../data/pipeline.json';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Drug pipeline', path: '/pipeline/' }];
+const jsonLd = graph(breadcrumbs(crumbs), { '@type': 'Dataset', name: 'Oxytocin drug development pipeline', description: 'Oxytocin-based drugs and analogs in development, with company, indication, stage and next catalyst.', url: new URL('/pipeline/', Astro.site).toString(), dateModified: data.asOf, creator: { '@id': `${Astro.site}#organization` } });
+---
+<BaseLayout title="Oxytocin drug pipeline: BHV-1955, TNX-2900, carbetocin and more" description="Every oxytocin-based drug in development as of 2026: Biohaven's BHV-1955 for tinnitus, Tonix's TNX-2900 for Prader-Willi, the failed carbetocin program, merotocin, and compounded generics." path="/pipeline/" jsonLd={jsonLd}>
+  <div class="wrap article-head">
+    <Breadcrumbs items={crumbs} />
+    <h1>The oxytocin drug pipeline</h1>
+    <p class="dek">Companies are reformulating a 70-year-old hormone for new diseases. Here is every program we can verify, what stage it's at, and what to watch for. Status as of {data.asOf}. <a href="/guides/oxytocin-drug-pipeline/">Read the full guide →</a></p>
+  </div>
+  <div class="wrap section" style="padding-top:0">
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Program</th><th>Company</th><th>Indication</th><th>Stage</th><th>Latest verified development</th><th>Watch for</th></tr></thead>
+        <tbody>
+          {data.programs.map((p) => (
+            <tr>
+              <td><strong>{p.program}</strong><div class="small muted">{p.molecule} · {p.route}</div></td>
+              <td>{p.company}</td>
+              <td>{p.indication}</td>
+              <td>{p.stage}</td>
+              <td>{p.latest}</td>
+              <td>{p.watch}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <section class="wrap section"><NewsletterForm compact /></section>
+</BaseLayout>

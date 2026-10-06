@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { VERDICTS, VERDICT_KEYS } from '../lib/verdict';
+import { graph, breadcrumbs } from '../lib/schema';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Editorial policy', path: '/editorial-policy/' }];
+const jsonLd = graph(breadcrumbs(crumbs));
+---
+<BaseLayout title="Editorial policy: how we rate oxytocin evidence" description="Our six-level evidence scale, what counts as a source, how we handle animal studies, trial registries, conflicts of interest, corrections and AI-assisted drafting." path="/editorial-policy/" jsonLd={jsonLd}>
+  <div class="wrap-narrow article-head">
+    <Breadcrumbs items={crumbs} />
+    <h1>How we rate evidence</h1>
+    <p class="dek">The rules every page on this site follows. If a page breaks one, <a href="/about/#contact">tell us</a>.</p>
+  </div>
+  <div class="wrap-narrow prose" style="margin-bottom:3rem">
+    <h2 id="verdicts">The verdict scale</h2>
+    <p>Every condition page carries one of six verdicts. The verdict is about <em>oxytocin for that problem in humans</em>, not about oxytocin in general and not about animal research.</p>
+    <div class="legend" style="margin:1.25rem 0">
+      {VERDICT_KEYS.map((k) => (<div class="item"><span class={`chip chip-${VERDICTS[k].tone}`}><span class="dot"></span>{VERDICTS[k].label}</span><p>{VERDICTS[k].meaning}</p></div>))}
+    </div>
+    <p>A verdict can move in either direction. A negative verdict is not a dead end: if a well-run trial later shows benefit in a defined group, we change it and say why on the updates page.</p>
+    <h2>What counts as evidence</h2>
+    <ul>
+      <li><strong>Human randomized, placebo-controlled trials</strong> carry the most weight, scaled by size and whether the primary outcome was met.</li>
+      <li><strong>Systematic reviews and meta-analyses</strong> of human trials rank above any single trial.</li>
+      <li><strong>Open-label and single-arm studies</strong> can earn "early signals," never "promising."</li>
+      <li><strong>Animal and mechanism studies</strong> explain why a hypothesis is reasonable. They never move a verdict above "no human evidence" on their own, and we label them as animal studies every time.</li>
+      <li><strong>Testimonials, forum reports and seller claims</strong> are not evidence. We may describe them as what people report.</li>
+    </ul>
+    <h2>Numbers, not adjectives</h2>
+    <p>We give the number of participants, the dose the study used, the duration, and whether the primary outcome was met. "A large study" or "promising results" without numbers is a rule violation.</p>
+    <h2>Dosing</h2>
+    <p>We never recommend a dose. We report what trials used because readers deserve to know when a seller's "protocol" has no relationship to any study. Compounded and intranasal oxytocin are not FDA-approved for any use, and we say so on every page where it matters.</p>
+    <h2>Independence</h2>
+    <p>We do not sell oxytocin or any product. Sponsors and referral partners are listed on the <a href="/disclosure/">disclosure page</a>, never see content before publication, and cannot change a verdict. Referral links are marked sponsored and go through a disclosed redirect. We refuse per-patient fees from clinicians and therapists.</p>
+    <h2>Updates and corrections</h2>
+    <p>Each page shows the date its evidence was last reviewed. We re-review when a new human trial, systematic review or regulatory action publishes, and we log the change on the <a href="/updates/">updates page</a>. Corrections are made in place and noted. We watch the trial registry weekly.</p>
+    <h2>How the pages are produced</h2>
+    <p>Research and drafting use software tools, including AI, under human editorial direction. Every study cited is checked against the primary source before publishing, every number maps to a numbered source at the bottom of the page, and no page is published that cites a source we could not open.</p>
+    <h2>Medical review</h2>
+    <p>We are recruiting an independent, named, credentialed physician to review condition pages. Until we have one, pages say "independent physician review: pending." We will never list a reviewer who did not review the page.</p>
+    <h2>What this site is not</h2>
+    <p>It is not medical advice and it does not know your history. Use it to walk into a clinician's office better informed.</p>
+  </div>
+</BaseLayout>

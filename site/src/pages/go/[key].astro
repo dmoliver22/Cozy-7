@@ -1,0 +1,23 @@
+---
+import { partners, PARTNER_KEYS, type PartnerKey } from '../../lib/partners';
+export function getStaticPaths() {
+  return PARTNER_KEYS.filter((k) => k !== 'none').map((key) => ({ params: { key } }));
+}
+const key = Astro.params.key as Exclude<PartnerKey, 'none'>;
+const p = partners[key];
+const target = p.url || p.fallback;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <title>Redirecting…</title>
+    <link rel="canonical" href={target} />
+  </head>
+  <body style="font-family:system-ui;padding:2rem;max-width:40rem;margin:auto">
+    <p>Taking you to {p.cta.toLowerCase()}. If nothing happens, <a href={target} rel={p.url ? 'sponsored nofollow noopener' : undefined}>continue here</a>.</p>
+    <p style="color:#666;font-size:.9rem">{p.url ? 'This is a sponsored link. The Oxytocin Report may receive a flat referral fee. It never changes our verdicts.' : ''}</p>
+  </body>
+</html>

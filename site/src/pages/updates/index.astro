@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterForm from '../../components/NewsletterForm.astro';
+import { updatesNewest } from '../../lib/collections';
+import { graph, breadcrumbs } from '../../lib/schema';
+import { fmtDate, isoDate } from '../../lib/format';
+const updates = await updatesNewest();
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Updates', path: '/updates/' }];
+const jsonLd = graph(breadcrumbs(crumbs), { '@type': 'CollectionPage', name: 'Oxytocin research updates', url: new URL('/updates/', Astro.site).toString() });
+---
+<BaseLayout title="Oxytocin research updates: new trials, results and what changed" description="A dated log of new oxytocin studies, trial results, drug-pipeline news and the pages we updated because of them." path="/updates/" jsonLd={jsonLd}>
+  <div class="wrap article-head">
+    <Breadcrumbs items={crumbs} />
+    <h1>Updates</h1>
+    <p class="dek">Every time the evidence moves, we write it down here and change the affected pages. Newest first. <a href="/rss.xml">RSS feed</a>.</p>
+  </div>
+  <div class="wrap section" style="padding-top:0">
+    {updates.map((u) => (
+      <article class="update">
+        <time datetime={isoDate(u.data.date)}>{fmtDate(u.data.date)}</time>
+        <div>
+          <h3><a href={`/updates/${u.id}/`}>{u.data.title}</a></h3>
+          <p>{u.data.description}</p>
+          <div class="tags">{u.data.tags.map((t) => (<span class="tag">{t}</span>))}</div>
+        </div>
+      </article>
+    ))}
+  </div>
+  <section class="wrap section"><NewsletterForm compact /></section>
+</BaseLayout>

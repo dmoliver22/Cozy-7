@@ -1,0 +1,23 @@
+---
+import { SITE } from '../config';
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+---
+<section class="news" aria-labelledby="news-h">
+  <div>
+    <h2 id="news-h">{compact ? 'Get the next result first' : 'One email when the evidence changes'}</h2>
+    <p>Five oxytocin trials read out between now and late 2027. We send a short, plain-English note when one does, and nothing else. No sprays, no supplements, no hype.</p>
+  </div>
+  <div>
+    {SITE.newsletterAction ? (
+      <form action={SITE.newsletterAction} method="post" target="_blank">
+        <label class="visually-hidden" for="nl-email">Email address</label>
+        <input id="nl-email" type="email" name={SITE.newsletterEmailField} placeholder="you@example.com" required autocomplete="email" />
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </form>
+    ) : (
+      <a class="btn btn-primary" href={`mailto:${SITE.contactEmail}?subject=Subscribe%20me`}>Email us to subscribe</a>
+    )}
+    <p class="fine">Unsubscribe any time. We never sell or share your address.</p>
+  </div>
+</section>

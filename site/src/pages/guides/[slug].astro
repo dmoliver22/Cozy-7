@@ -1,0 +1,79 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Faq from '../../components/Faq.astro';
+import Sources from '../../components/Sources.astro';
+import Toc from '../../components/Toc.astro';
+import ReviewNote from '../../components/ReviewNote.astro';
+import ConditionCard from '../../components/ConditionCard.astro';
+import NewsletterForm from '../../components/NewsletterForm.astro';
+import { partners, partnerHref, type PartnerKey } from '../../lib/partners';
+import { graph, breadcrumbs, article, faqPage } from '../../lib/schema';
+import { fmtDate, readingTime } from '../../lib/format';
+import type { Verdict } from '../../lib/verdict';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('guides');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content, headings } = await render(entry);
+const path = `/guides/${entry.id}/`;
+const image = `/og/guides/${entry.id}.png`;
+const conditions = await getCollection('conditions');
+const guides = await getCollection('guides');
+const relatedC = conditions.filter((c) => d.relatedSlugs.includes(c.id)).slice(0, 3);
+const relatedG = guides.filter((g) => d.relatedSlugs.includes(g.id) && g.id !== entry.id).slice(0, 3);
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Guides', path: '/guides/' }, { name: d.title, path }];
+const jsonLd = graph(
+  breadcrumbs(crumbs),
+  article({ path, headline: d.title, description: d.description, published: d.lastReviewed, modified: d.updated, image, medical: { lastReviewed: d.lastReviewed }, section: 'Guides', keywords: ['oxytocin', 'oxytocin nasal spray'], wordCount: entry.body?.split(/\s+/).length }),
+  faqPage(d.faq),
+);
+const p = d.partnerKey !== 'none' ? partners[d.partnerKey as Exclude<PartnerKey, 'none'>] : null;
+const tocExtra = [...(d.faq.length ? [{ slug: 'faq-h', text: 'Questions people ask' }] : []), ...(d.sources.length ? [{ slug: 'sources-h', text: 'Sources' }] : [])];
+---
+<BaseLayout title={d.title} description={d.description} path={path} image={image} type="article" published={d.lastReviewed} modified={d.updated} jsonLd={jsonLd}>
+  <header class="article-head">
+    <div class="wrap">
+      <Breadcrumbs items={crumbs} />
+      <span class="tag">Guide</span>
+      <h1 style="margin-top:.5rem">{d.title}</h1>
+      <p class="dek">{d.summary}</p>
+      <div class="byline"><span>By the Oxytocin Report editorial team</span><span>Reviewed {fmtDate(d.lastReviewed)}</span><span>{readingTime(entry.body ?? '')} min read</span><a href="/editorial-policy/">How we work</a></div>
+    </div>
+  </header>
+  <div class="wrap layout">
+    <article>
+      <div class="prose"><Content /></div>
+      {p && (
+        <div class="works" style="margin-top:2.5rem">
+          <div class="partner" style="margin-top:0">
+            <h3>{p.heading}</h3>
+            <p>{p.blurb}</p>
+            <div class="row">
+              <a class="btn btn-dark" href={partnerHref(d.partnerKey as PartnerKey)} rel={p.url ? 'sponsored nofollow noopener' : undefined} target={p.url ? '_blank' : undefined}>{p.cta}</a>
+              <span class="disc">{p.url ? 'Sponsored link. Flat fee, never per patient. It does not change what we write.' : 'No partner yet for this route; the link goes to our own guide.'} <a href="/disclosure/">Disclosure</a></span>
+            </div>
+          </div>
+        </div>
+      )}
+      <Faq items={d.faq} />
+      <Sources sources={d.sources} />
+      <ReviewNote lastReviewed={d.lastReviewed} updated={d.updated} />
+    </article>
+    <Toc headings={headings} extra={tocExtra} />
+  </div>
+  {(relatedC.length > 0 || relatedG.length > 0) && (
+    <section class="wrap related">
+      <h2>Keep reading</h2>
+      <div class="grid grid-3">
+        {relatedC.map((c) => (<ConditionCard slug={c.id} condition={c.data.condition} question={c.data.question} oneLiner={c.data.oneLiner} verdict={c.data.verdict as Verdict} humanStudies={c.data.humanStudies} activeTrials={c.data.activeTrials} />))}
+        {relatedG.map((g) => (<a class="card cond-card" href={`/guides/${g.id}/`}><span class="tag">Guide</span><h3>{g.data.title}</h3><p class="one">{g.data.summary}</p></a>))}
+      </div>
+    </section>
+  )}
+  <section class="wrap section"><NewsletterForm compact /></section>
+</BaseLayout>

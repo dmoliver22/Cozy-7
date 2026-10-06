@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { guidesAll } from '../../lib/collections';
+import { graph, breadcrumbs } from '../../lib/schema';
+const guides = await guidesAll();
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Guides', path: '/guides/' }];
+const jsonLd = graph(breadcrumbs(crumbs), { '@type': 'CollectionPage', name: 'Oxytocin guides', url: new URL('/guides/', Astro.site).toString() });
+---
+<BaseLayout title="Oxytocin guides: nasal spray, safety, cost, and how it works" description="Plain-English guides to oxytocin: what it is, how nasal spray is prescribed and what it costs, side effects, whether it reaches the brain, and what's really in Amazon 'oxytocin' sprays." path="/guides/" jsonLd={jsonLd}>
+  <div class="wrap article-head">
+    <Breadcrumbs items={crumbs} />
+    <h1>Guides</h1>
+    <p class="dek">The practical questions: what oxytocin is, how the spray is actually prescribed and priced, what trials report about side effects, and what to make of the products sold without a prescription.</p>
+  </div>
+  <div class="wrap section" style="padding-top:0">
+    <div class="grid grid-2">
+      {guides.map((g) => (
+        <a class="card cond-card" href={`/guides/${g.id}/`}>
+          <span class="tag">Guide</span>
+          <h3>{g.data.title}</h3>
+          <p class="one">{g.data.summary}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

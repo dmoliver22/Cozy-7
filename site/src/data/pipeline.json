@@ -1,0 +1,55 @@
+{
+ "asOf": "2026-10-06",
+ "programs": [
+  {
+   "program": "BHV-1955",
+   "molecule": "Long-acting intranasal oxytocin formulation",
+   "company": "Biohaven",
+   "indication": "Tinnitus",
+   "route": "Intranasal",
+   "stage": "Preclinical (per 2026 SEC filings and pipeline page)",
+   "latest": "Presented at Biohaven R&D Day 27 May 2026 by Lawrence C. Newman MD (ex-NYU PI of terminated NCT04210310; inventor on US11241477 assigned NYU then Maskbegone LLC). No IND or Phase 1 timing found.",
+   "watch": "IND filing; first NCT registration; any Phase 1 start"
+  },
+  {
+   "program": "TNX-2900",
+   "molecule": "Magnesium-potentiated intranasal oxytocin",
+   "company": "Tonix Pharmaceuticals",
+   "indication": "Prader-Willi syndrome hyperphagia",
+   "route": "Intranasal",
+   "stage": "IND cleared; Phase 2 planned Q1 2027 (delayed from 2026)",
+   "latest": "Phase 2 to randomize ages 8-17.5 to three dose levels or placebo 1:1:1:1 for 12 weeks; Orphan + Rare Pediatric Disease designations",
+   "watch": "NCT registration; first patient dosed"
+  },
+  {
+   "program": "ACP-101 (intranasal carbetocin)",
+   "molecule": "Oxytocin analog",
+   "company": "Acadia Pharmaceuticals",
+   "indication": "Prader-Willi syndrome hyperphagia",
+   "route": "Intranasal",
+   "stage": "Discontinued",
+   "latest": "Phase 3 COMPASS PWS (N=175) missed primary and all secondary endpoints; announced 24 Sept 2025; Acadia will not pursue further",
+   "watch": "Nothing; use as cautionary case study"
+  },
+  {
+   "program": "Merotocin (FE 202767)",
+   "molecule": "Selective peptidic oxytocin-receptor agonist",
+   "company": "Ferring",
+   "indication": "Lactation support in preterm mothers",
+   "route": "Intranasal",
+   "stage": "Phase II",
+   "latest": "Undetectable in breast milk after IV dosing (Breastfeeding Medicine 2024); Patsnap entry updated Apr 2026",
+   "watch": "Phase II readout"
+  },
+  {
+   "program": "Generic compounded oxytocin",
+   "molecule": "Oxytocin",
+   "company": "503A/503B compounders and telehealth",
+   "indication": "Off-label (intimacy",
+   "route": " stress",
+   "stage": " mood",
+   "latest": " social anxiety)",
+   "watch": "Intranasal / troche / cream"
+  }
+ ]
+}

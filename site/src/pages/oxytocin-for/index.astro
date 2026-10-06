@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ConditionCard from '../../components/ConditionCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { conditionsByStrength } from '../../lib/collections';
+import { VERDICTS, VERDICT_KEYS, type Verdict } from '../../lib/verdict';
+import { graph, breadcrumbs } from '../../lib/schema';
+
+const conditions = await conditionsByStrength();
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Conditions', path: '/oxytocin-for/' }];
+const jsonLd = graph(breadcrumbs(crumbs), {
+  '@type': 'CollectionPage',
+  name: 'Oxytocin evidence by condition',
+  url: new URL('/oxytocin-for/', Astro.site).toString(),
+  hasPart: conditions.map((c) => ({ '@type': 'WebPage', name: c.data.title, url: new URL(`/oxytocin-for/${c.id}/`, Astro.site).toString() })),
+});
+---
+<BaseLayout title="Oxytocin evidence by condition: every verdict in one place" description="Does oxytocin help relationships, tinnitus, menopause, anxiety, autism, pain, weight loss or low mood? Our plain-English verdict for each, ranked by evidence strength." path="/oxytocin-for/" jsonLd={jsonLd}>
+  <div class="wrap article-head">
+    <Breadcrumbs items={crumbs} />
+    <h1>Oxytocin, condition by condition</h1>
+    <p class="dek">Ranked from the strongest evidence to the weakest. Click any card for the studies, the numbers, the trials under way, and what works instead.</p>
+  </div>
+  <div class="wrap section" style="padding-top:0">
+    <div class="grid grid-3">
+      {conditions.map((c) => (
+        <ConditionCard slug={c.id} condition={c.data.condition} question={c.data.question} oneLiner={c.data.oneLiner} verdict={c.data.verdict as Verdict} humanStudies={c.data.humanStudies} activeTrials={c.data.activeTrials} />
+      ))}
+    </div>
+  </div>
+  <div class="wrap section" id="verdicts">
+    <h2>What the verdict labels mean</h2>
+    <div class="legend">
+      {VERDICT_KEYS.map((k) => (<div class="item"><span class={`chip chip-${VERDICTS[k].tone}`}><span class="dot"></span>{VERDICTS[k].label}</span><p>{VERDICTS[k].meaning}</p></div>))}
+    </div>
+    <p class="muted small" style="margin-top:1rem">Full method on our <a href="/editorial-policy/">editorial policy</a> page.</p>
+  </div>
+</BaseLayout>

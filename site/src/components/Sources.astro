@@ -1,0 +1,15 @@
+---
+interface Props { sources: { title: string; url: string; year?: number | string; type?: string }[] }
+const { sources } = Astro.props;
+const label = (t?: string) => ({ study: 'Study', 'trial-registry': 'Trial registry', review: 'Review', 'meta-analysis': 'Meta-analysis', regulator: 'Regulator', company: 'Company', news: 'News', other: '' } as Record<string, string>)[t ?? 'other'] ?? t ?? '';
+---
+{sources.length > 0 && (
+  <section class="sources" aria-labelledby="sources-h">
+    <h2 id="sources-h">Sources</h2>
+    <ol>
+      {sources.map((s, i) => (
+        <li id={`src-${i + 1}`}><a href={s.url} rel="noopener" target="_blank">{s.title}</a>{s.year ? ` (${s.year})` : ''}{label(s.type) && <span class="type">{label(s.type)}</span>}</li>
+      ))}
+    </ol>
+  </section>
+)}

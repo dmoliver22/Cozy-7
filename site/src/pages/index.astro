@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ConditionCard from '../components/ConditionCard.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import { conditionsFeatured, updatesNewest } from '../lib/collections';
+import { graph } from '../lib/schema';
+import { fmtDate, isoDate } from '../lib/format';
+import { SITE } from '../config';
+import catalysts from '../data/catalysts.json';
+import type { Verdict } from '../lib/verdict';
+
+const conditions = await conditionsFeatured();
+const updates = (await updatesNewest()).slice(0, 4);
+const totalStudies = conditions.reduce((n, c) => n + c.data.humanStudies, 0);
+const totalTrials = conditions.reduce((n, c) => n + c.data.activeTrials, 0);
+const jsonLd = graph();
+---
+<BaseLayout title={`${SITE.name}: what oxytocin can and can't do`} titleTemplate={false} description={SITE.description} path="/" jsonLd={jsonLd}>
+  <section class="hero">
+    <div class="wrap">
+      <div class="kicker">Updated {fmtDate(new Date('2026-10-06'))} · {conditions.length} conditions · {totalStudies} human studies read</div>
+      <h1>Can oxytocin actually fix that?</h1>
+      <p class="lede">Oxytocin is being sold as a <strong>$200-a-month answer</strong> to failing marriages, ringing ears, menopause, anxiety and more. We read every human study for every claim and give you a straight verdict. <strong>We don't sell it</strong>, so we can tell you when it doesn't work.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/quiz/">Find your answer in 30 seconds</a>
+        <a class="btn btn-ghost" href="/editorial-policy/#verdicts">How we rate evidence</a>
+      </div>
+      <div class="ask">
+        <p class="label">What are you hoping oxytocin will help with?</p>
+        <div class="chips">
+          {conditions.map((c) => (<a href={`/oxytocin-for/${c.id}/`}>{c.data.condition}</a>))}
+          <a href="/guides/what-is-oxytocin/">I'm just curious what it does</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>The honest verdicts</h2><p>One page per problem. The short answer, the actual studies with their numbers, what's being tested, and what works instead.</p></div>
+        <a class="more" href="/oxytocin-for/">All conditions →</a>
+      </div>
+      <div class="grid grid-3">
+        {conditions.map((c) => (
+          <ConditionCard slug={c.id} condition={c.data.condition} question={c.data.question} oneLiner={c.data.oneLiner} verdict={c.data.verdict as Verdict} humanStudies={c.data.humanStudies} activeTrials={c.data.activeTrials} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="wrap">
+      <div class="trust">
+        <div class="item"><div class="num">0</div><h3>Sprays sold</h3><p>Every other oxytocin site is a pharmacy, a telehealth funnel, or an affiliate for one. We have no product, so our verdicts can say "it didn't work."</p></div>
+        <div class="item"><div class="num">{totalStudies}</div><h3>Human studies read</h3><p>Every number on this site maps to a named study you can click. Animal research is labeled as animal research.</p></div>
+        <div class="item"><div class="num">{totalTrials}</div><h3>Trials we're watching</h3><p>We track every registered human oxytocin trial and update the relevant page the week a result publishes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>What's about to change</h2><p>The next results, in order. These are the dates that will move our verdicts.</p></div>
+        <a class="more" href="/trials/">Full trial tracker →</a>
+      </div>
+      <ol class="timeline">
+        {catalysts.map((c) => (
+          <li><span class="when">{c.when}</span><span class="what"><strong><a href={`/oxytocin-for/${c.slug}/`} style="text-decoration:none;color:inherit">{c.what}</a></strong>{c.detail}</span></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>Latest updates</h2><p>What changed in the evidence, and what we changed on the site because of it.</p></div>
+        <a class="more" href="/updates/">All updates →</a>
+      </div>
+      {updates.map((u) => (
+        <article class="update">
+          <time datetime={isoDate(u.data.date)}>{fmtDate(u.data.date)}</time>
+          <div>
+            <h3><a href={`/updates/${u.id}/`}>{u.data.title}</a></h3>
+            <p>{u.data.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap"><NewsletterForm /></div>
+  </section>
+</BaseLayout>

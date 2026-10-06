@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { graph, breadcrumbs } from '../lib/schema';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Medical disclaimer', path: '/medical-disclaimer/' }];
+---
+<BaseLayout title="Medical disclaimer" description="The Oxytocin Report is information, not medical advice. What that means and when to see a clinician." path="/medical-disclaimer/" jsonLd={graph(breadcrumbs(crumbs))}>
+  <div class="wrap-narrow article-head"><Breadcrumbs items={crumbs} /><h1>Medical disclaimer</h1></div>
+  <div class="wrap-narrow prose" style="margin-bottom:3rem">
+    <p>The Oxytocin Report summarizes published research for general information. It is not medical advice, does not create a clinician-patient relationship, and does not know your medical history, medications or circumstances.</p>
+    <p>Oxytocin is a prescription drug. Compounded and intranasal forms are not approved by the FDA for any use. Decisions about starting, stopping or changing any medication belong between you and a licensed clinician who knows your history. Oxytocin can induce labor and must not be used in pregnancy outside medical supervision.</p>
+    <p>If you are in crisis or thinking about harming yourself, contact your local emergency number or, in the United States, call or text 988.</p>
+    <p>We work hard to be accurate and we correct errors quickly, but research changes and we may be wrong. Every page lists its sources so you and your clinician can check our reading.</p>
+  </div>
+</BaseLayout>

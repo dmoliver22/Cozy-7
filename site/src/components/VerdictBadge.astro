@@ -1,0 +1,7 @@
+---
+import { VERDICTS, type Verdict } from '../lib/verdict';
+interface Props { verdict: Verdict; size?: 'sm' | 'md'; title?: boolean }
+const { verdict, size = 'md', title = true } = Astro.props;
+const v = VERDICTS[verdict];
+---
+<span class={`chip chip-${v.tone}`} style={size === 'sm' ? 'font-size:.78rem;padding:.25rem .6rem' : ''} title={title ? v.meaning : undefined}><span class="dot" aria-hidden="true"></span>{v.label}</span>

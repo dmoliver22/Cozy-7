@@ -1,0 +1,167 @@
+{
+ "asOf": "2026-10-06",
+ "trials": [
+  {
+   "nct": "NCT06194851",
+   "title": "Intranasal oxytocin augmentation of brief cognitive-behavioral conjoint therapy (bCBCT) for veterans with PTSD",
+   "sponsor": "VA San Diego Healthcare System (PI Leslie Morland)",
+   "status": "Recruiting; Phase 2; est. 240 participants (120 couples)",
+   "dates": "Multi-year; completion previously reported as ~Sept 2028 (not re-verified today)",
+   "cluster": "Relationships",
+   "why": "The single most important trial for the couples-therapy thesis; veteran self-administers oxytocin before each weekly session"
+  },
+  {
+   "nct": "NCT05207436",
+   "title": "Brief CBCT for PTSD with adjunctive intranasal oxytocin (predecessor study)",
+   "sponsor": "VA",
+   "status": "Unknown from index; protocol v2 and SAP posted",
+   "dates": "\u2014",
+   "cluster": "Relationships",
+   "why": "Earlier pilot of the same design; results would de-risk NCT06194851"
+  },
+  {
+   "nct": "NCT06808516",
+   "title": "OxyPLEASURE: intranasal oxytocin on sexual well-being in AVP deficiency and healthy controls (crossover)",
+   "sponsor": "University Hospital Basel",
+   "status": "Recruiting",
+   "dates": "Primary completion Dec 2026",
+   "cluster": "Deficiency / Sexual function",
+   "why": "First controlled sexual-wellbeing trial in a defined oxytocin-deficient population; readout likely 2027"
+  },
+  {
+   "nct": "NCT07361263",
+   "title": "PHOENIX: plasma oxytocin / neurophysin-I response to oral estradiol valerate and ethinylestradiol in healthy controls and AVP deficiency",
+   "sponsor": "University Hospital Basel",
+   "status": "Recruiting (first posted Jan 2026)",
+   "dates": "Est. completion Feb 2027",
+   "cluster": "Deficiency / Testing",
+   "why": "Attempt to build a non-MDMA diagnostic stimulation test for oxytocin deficiency; direct catalyst for the testing cluster"
+  },
+  {
+   "nct": "NCT07742124",
+   "title": "OxyMENO: circulating oxytocin (via neurophysin-I) in postmenopausal vs premenopausal women",
+   "sponsor": "University Hospital Basel",
+   "status": "Recruiting; started 20 Aug 2026",
+   "dates": "Est. completion 1 Sept 2027",
+   "cluster": "Deficiency / Menopause",
+   "why": "Newest oxytocin trial found; links menopause and oxytocin-deficiency storylines"
+  },
+  {
+   "nct": "NCT06460948",
+   "title": "Identification of oxytocin deficiency in adults with pituitary disease (estrogen-progestin stimulation)",
+   "sponsor": "Likely MGH group",
+   "status": "Completed; last updated May 2026",
+   "dates": "Results pending",
+   "cluster": "Deficiency / Testing",
+   "why": "Completed study whose publication could define a deficiency test"
+  },
+  {
+   "nct": "NCT05319301",
+   "title": "Identification and clinical relevance of an oxytocin-deficient state (melatonin study)",
+   "sponsor": "MGH group",
+   "status": "Unknown",
+   "dates": "\u2014",
+   "cluster": "Deficiency / Testing",
+   "why": "Part of the same deficiency-definition program"
+  },
+  {
+   "nct": "NCT04902235",
+   "title": "Identification and clinical relevance of an oxytocin-deficient state (CRH study)",
+   "sponsor": "MGH group",
+   "status": "Unknown",
+   "dates": "\u2014",
+   "cluster": "Deficiency / Testing",
+   "why": "Part of the same deficiency-definition program"
+  },
+  {
+   "nct": "NCT07425938",
+   "title": "Modulatory effects of oxytocin on emotional processing and its acting routes",
+   "sponsor": "University of Electronic Science and Technology of China",
+   "status": "Recruiting; N=120 healthy men 18-30",
+   "dates": "Start 24 Jan 2026; primary completion est. Apr 2026",
+   "cluster": "Delivery science",
+   "why": "Mechanistic study of routes of action; feeds the nose-to-brain content cluster"
+  },
+  {
+   "nct": "NCT06757517",
+   "title": "Intranasal oxytocin for benzodiazepine withdrawal (16 IU x3/day for 21 days)",
+   "sponsor": "Unknown",
+   "status": "Completed as of Sept 2026",
+   "dates": "Results expected",
+   "cluster": "Conditions (addiction)",
+   "why": "Completed and unreported; a publication would be a fresh news hook"
+  },
+  {
+   "nct": "NCT06364228",
+   "title": "Intranasal oxytocin for dementia caregiver stress (12 IU vs 24 IU vs placebo for 21 days)",
+   "sponsor": "Unknown",
+   "status": "Ongoing; Phase 2",
+   "dates": "Est. completion May 2027",
+   "cluster": "Conditions (stress)",
+   "why": "Caregiver-stress angle is uncovered by consumer content"
+  },
+  {
+   "nct": "NCT06881810",
+   "title": "Oxytocin as add-on to psychosocial treatment in schizophrenia-spectrum disorders",
+   "sponsor": "Unknown",
+   "status": "Active not recruiting (Aug 2026); started Aug 2024",
+   "dates": "Readout plausible 2027",
+   "cluster": "Conditions (psychiatry)",
+   "why": "Schizophrenia is the one psychiatric signal the 2026 meta-analysis flagged"
+  },
+  {
+   "nct": "NCT04903002",
+   "title": "Intranasal oxytocin for chronic pain (24 IU vs 48 IU vs placebo)",
+   "sponsor": "Memorial University of Newfoundland",
+   "status": "Active not recruiting; updated Feb 2026",
+   "dates": "Readout pending",
+   "cluster": "Conditions (pain)",
+   "why": "Pain is a sleeper indication with zero consumer coverage"
+  },
+  {
+   "nct": "NCT04228289",
+   "title": "Oxytocin to treat PTSD",
+   "sponsor": "VA Office of Research and Development",
+   "status": "Completed; updated 11 Mar 2026",
+   "dates": "Results pending",
+   "cluster": "Conditions (PTSD)",
+   "why": "Completed VA PTSD monotherapy trial; publication would be newsworthy"
+  },
+  {
+   "nct": "NCT06483659",
+   "title": "Intravenous oxytocin for post-operative pain after minimally invasive hysterectomy",
+   "sponsor": "Brigham and Women's Hospital",
+   "status": "Recruiting (verified Aug 2026)",
+   "dates": "\u2014",
+   "cluster": "Conditions (pain)",
+   "why": "Shows oxytocin-for-pain is an active academic theme"
+  },
+  {
+   "nct": "NCT05664516",
+   "title": "Intranasal oxytocin vs placebo in binge eating disorder (8 weeks)",
+   "sponsor": "Unknown",
+   "status": "Unknown",
+   "dates": "\u2014",
+   "cluster": "Conditions (eating / weight)",
+   "why": "Weight and eating remain a high-curiosity supporting topic"
+  },
+  {
+   "nct": "NCT03197662",
+   "title": "Phase 2 intranasal oxytocin vs placebo for hyperphagia in Prader-Willi syndrome (N=50 age 5-17)",
+   "sponsor": "Academic (FPWR-listed)",
+   "status": "Unknown",
+   "dates": "\u2014",
+   "cluster": "Pipeline (PWS)",
+   "why": "Context for TNX-2900 and the carbetocin failure"
+  },
+  {
+   "nct": "NCT04210310",
+   "title": "High-dose oxytocin nasal spray for treatment of tinnitus",
+   "sponsor": "NYU Langone Health (PI Lawrence C. Newman)",
+   "status": "TERMINATED (PI departure); completed 10 May 2022; results submitted Aug 2022",
+   "dates": "Historical",
+   "cluster": "Conditions (tinnitus)",
+   "why": "The only registered oxytocin-tinnitus trial; Newman is the inventor on the tinnitus patent now behind Biohaven's BHV-1955"
+  }
+ ]
+}

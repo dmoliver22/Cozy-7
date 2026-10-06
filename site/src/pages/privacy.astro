@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { graph, breadcrumbs } from '../lib/schema';
+import { SITE } from '../config';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Privacy', path: '/privacy/' }];
+---
+<BaseLayout title="Privacy policy" description="What The Oxytocin Report collects (almost nothing), how the newsletter works, and your choices." path="/privacy/" jsonLd={graph(breadcrumbs(crumbs))}>
+  <div class="wrap-narrow article-head"><Breadcrumbs items={crumbs} /><h1>Privacy</h1><p class="dek">Health searches are sensitive. We designed this site to know as little about you as possible.</p></div>
+  <div class="wrap-narrow prose" style="margin-bottom:3rem">
+    <h2>What we collect</h2>
+    <ul>
+      <li><strong>Nothing by default.</strong> Reading this site requires no account and sets no tracking cookies. Your dark-mode preference is stored in your own browser and never sent to us.</li>
+      <li><strong>Newsletter.</strong> If you subscribe, your email address is held by our email provider solely to send you the newsletter. Unsubscribe links are in every email.</li>
+      <li><strong>Analytics.</strong> If we add analytics, we will use a privacy-respecting, cookie-free service that reports aggregate page counts only, and we will name it here.</li>
+      <li><strong>Email you send us.</strong> Kept only to answer you.</li>
+    </ul>
+    <h2>Referral links</h2>
+    <p>Some buttons pass through a /go/ redirect on this site before reaching a partner. The redirect records nothing about you. Partners' own sites have their own privacy policies.</p>
+    <h2>Your rights</h2>
+    <p>Ask us to delete anything we hold about you at <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>. We will.</p>
+    <p class="muted small">Last updated October 6, 2026.</p>
+  </div>
+</BaseLayout>
