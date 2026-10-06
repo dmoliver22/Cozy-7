@@ -1,5 +1,5 @@
 ---
-title: "Oxytocin Glossary: IU, 503A, Neurophysin-I and 30 Other Terms"
+title: "Oxytocin Glossary: IU, 503A, Neurophysin-I and 40 Other Terms"
 description: "Plain-English definitions of 40 oxytocin terms: IU and micrograms, 503A compounding, AVP deficiency, neurophysin-I, OXTR, troches, research use only and more."
 summary: "Forty terms from oxytocin research, pharmacy and marketing, each explained in one to three plain sentences, from 503A compounding to vasopressin."
 partnerKey: none
@@ -86,7 +86,7 @@ Reading about oxytocin means running into pharmacy law, endocrinology, trial des
 
 ## D
 
-**Double-blind.** A design in which neither the participants nor the researchers assessing them know who received the drug and who received placebo until the trial ends. It protects against expectation shaping the results, on both sides.
+**Double-blind.** A design in which neither participants nor the researchers assessing them know who got drug or placebo until the trial ends. It stops expectation shaping the results, on both sides.
 
 **Dyspareunia.** The medical term for pain during sex. It is the symptom that matters most in trials of treatments for vaginal dryness after menopause, and the one oxytocin gel has not been shown to improve.
 
@@ -100,7 +100,7 @@ Reading about oxytocin means running into pharmacy law, endocrinology, trial des
 
 **Hyponatremia.** Dangerously low sodium in the blood. Oxytocin is a close chemical relative of vasopressin and has a weak water-retaining effect of its own, so the approved injection carries a warning about water intoxication with prolonged high-dose use [4].
 
-**Hypothalamus.** A small region at the base of the brain that controls hormones, hunger, temperature and basic drives. Its cells make oxytocin and vasopressin and send them down to the posterior pituitary for release.
+**Hypothalamus.** A small region at the base of the brain that controls hormones, hunger, temperature and basic drives. Its cells make oxytocin and vasopressin and send them to the posterior pituitary for release.
 
 ## I
 
@@ -154,7 +154,7 @@ Reading about oxytocin means running into pharmacy law, endocrinology, trial des
 
 ## R
 
-**Randomized controlled trial (RCT).** A study in which participants are assigned by chance to treatment or comparison groups. Randomization is what makes the groups comparable, so that differences at the end can be attributed to the treatment.
+**Randomized controlled trial (RCT).** A study in which participants are assigned by chance to treatment or comparison groups. Randomization makes the groups comparable, so differences at the end can be attributed to the treatment.
 
 **Research use only (RUO).** A label meaning a product is intended for laboratory research, not for diagnosing or treating people, and has not been reviewed by the FDA for human use [3]. Peptide sellers put it on oxytocin vials to avoid drug regulation; the FDA treats the label as meaningless when the product is clearly marketed for people to take.
 
@@ -168,7 +168,7 @@ Reading about oxytocin means running into pharmacy law, endocrinology, trial des
 
 **Tinnitus Handicap Inventory (THI).** A 25-item questionnaire that scores how much tinnitus disrupts a person's life, from 0 to 100, with higher scores meaning more handicap [9]. It is the standard outcome measure in tinnitus trials, including the small oxytocin studies.
 
-**Troche.** A lozenge designed to dissolve slowly in the cheek so the drug absorbs through the lining of the mouth. Compounding pharmacies sell oxytocin troches, sometimes combined with other drugs in one lozenge. How much oxytocin actually absorbs this way has not been well studied.
+**Troche.** A lozenge that dissolves slowly in the cheek so the drug absorbs through the mouth lining. Compounding pharmacies sell oxytocin troches, sometimes combined with other drugs in one lozenge. How much oxytocin absorbs this way has not been well studied.
 
 ## V
 

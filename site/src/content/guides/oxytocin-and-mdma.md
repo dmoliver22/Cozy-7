@@ -1,6 +1,6 @@
 ---
 title: "Oxytocin and MDMA: Why One Is Used to Test for the Other"
-description: "MDMA triggers a large oxytocin release, so Basel researchers use it to diagnose oxytocin deficiency. What that proves, what it does not, and why a spray feels different."
+description: "MDMA triggers a big oxytocin release, so Basel researchers use it to test for oxytocin deficiency. What it shows, what it does not, and why a spray is not MDMA."
 summary: "MDMA makes the brain release its own oxytocin, about 8.5-fold in healthy people, which is why researchers use it as a diagnostic test. That does not make oxytocin spray a legal MDMA, and the evidence that oxytocin is MDMA's 'love' ingredient is weaker than the headlines."
 partnerKey: endocrinologist
 faq:

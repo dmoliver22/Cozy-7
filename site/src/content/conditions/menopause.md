@@ -4,7 +4,7 @@ description: "Vaginal oxytocin gel improved signs of atrophy in 7 small trials b
 condition: "Menopause and vaginal dryness"
 question: "Does oxytocin help menopause symptoms?"
 verdict: mixed
-oneLiner: "Seven small trials of vaginal oxytocin gel (631 women) improved clinician-rated atrophy but not pain with sex; a 244-woman Phase 3 is registered, and vaginal estrogen remains the proven choice."
+oneLiner: "Seven small trials of vaginal oxytocin gel (631 women) improved clinician-rated atrophy but not pain with sex; a 242-woman Phase 3 is registered, and vaginal estrogen remains the proven choice."
 humanStudies: 8
 largestStudy: "631 women across 7 vaginal gel trials, pooled in a 2023 meta-analysis"
 activeTrials: 2
@@ -29,7 +29,7 @@ faq:
   - q: "How does oxytocin gel compare with vaginal estrogen?"
     a: "Vaginal estrogen has decades of evidence, is approved, and improves dryness, pain with sex and vaginal pH. Oxytocin gel has 7 small trials showing better tissue appearance on exam but no clear improvement in pain with sex or pH. If you cannot or do not want to use estrogen, vaginal DHEA, ospemifene and moisturizers are the studied alternatives."
   - q: "Can I join a trial of oxytocin for menopause?"
-    a: "Two are registered. A Phase 3 trial of vaginal oxytocin gel (NCT06514586) plans to enroll about 244 postmenopausal women with vaginal atrophy. The Basel OxyMENO study (NCT07742124) measures oxytocin-related markers rather than treating symptoms. Search the NCT number on ClinicalTrials.gov for locations and contact details."
+    a: "Two are registered. A Phase 3 trial of vaginal oxytocin gel (NCT06514586) plans to enroll about 242 postmenopausal women with vaginal atrophy. The Basel OxyMENO study (NCT07742124) measures oxytocin-related markers rather than treating symptoms. Search the NCT number on ClinicalTrials.gov for locations and contact details."
 sources:
   - title: "Oxytocin gel for vaginal atrophy in postmenopausal women: systematic review and meta-analysis"
     url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10505316/"
@@ -146,7 +146,7 @@ Oxytocin gel, by contrast, has 7 small trials and did not clearly improve pain w
 
 Two registered studies are directly relevant.
 
-NCT06514586 is a Phase 3, double-blind, randomized trial of a vaginal oxytocin gel against placebo in postmenopausal women with vulvovaginal atrophy. It plans to enroll about 244 women [3].
+NCT06514586 is a Phase 3, double-blind, randomized trial of a vaginal oxytocin gel against placebo in postmenopausal women with vulvovaginal atrophy. It plans to enroll about 242 women [3].
 
 A Phase 3 is the kind of trial regulators look at, so this is the one that could change the picture. The sponsor and expected completion date were not visible in the registry summary we could access.
 
