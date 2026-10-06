@@ -1,6 +1,6 @@
 ---
 title: "Oxytocin Glossary: IU, 503A, Neurophysin-I and 30 Other Terms"
-description: "Plain-English definitions of 40 terms you will meet reading about oxytocin: IU and micrograms, 503A compounding, AVP deficiency, neurophysin-I, OXTR, troches, RUO and more."
+description: "Plain-English definitions of 40 oxytocin terms: IU and micrograms, 503A compounding, AVP deficiency, neurophysin-I, OXTR, troches, research use only and more."
 summary: "Forty terms from oxytocin research, pharmacy and marketing, each explained in one to three plain sentences, from 503A compounding to vasopressin."
 partnerKey: none
 faq:
@@ -58,7 +58,7 @@ lastReviewed: 2026-10-06
 updated: 2026-10-06
 ---
 
-Reading about oxytocin means running into pharmacy law, endocrinology, trial design and marketing all at once. This glossary defines the 40 terms you are most likely to meet on this site, in plain English, in one to three sentences each. Terms are alphabetical. Where a definition rests on a specific fact, the source is cited in brackets.
+Reading about oxytocin means running into pharmacy law, endocrinology, trial design and marketing at once. This glossary defines the 40 terms you are most likely to meet on this site, in plain English, alphabetically. Where a definition rests on a specific fact, the source is cited in brackets.
 
 ## Numbers
 
@@ -72,7 +72,7 @@ Reading about oxytocin means running into pharmacy law, endocrinology, trial des
 
 ## B
 
-**Bioavailability.** The fraction of a dose that actually reaches the bloodstream (or, for brain drugs, the brain) in active form. Oxytocin swallowed has close to zero bioavailability because digestion destroys it, which is why every non-injected product goes through the nose or the lining of the mouth.
+**Bioavailability.** The fraction of a dose that reaches the bloodstream (or, for brain drugs, the brain) in active form. Swallowed oxytocin has close to zero bioavailability because digestion destroys it, so every non-injected product goes through the nose or mouth lining.
 
 ## C
 
@@ -80,7 +80,7 @@ Reading about oxytocin means running into pharmacy law, endocrinology, trial des
 
 **Cerebrospinal fluid (CSF).** The clear fluid that bathes the brain and spinal cord. Finding oxytocin in CSF after a nasal dose is one of the few ways to show it reached the central nervous system, and such measurements in humans are rare and debated [6].
 
-**Cortisol.** The body's main stress hormone, released by the adrenal glands. Many oxytocin studies measure cortisol in saliva or blood as a marker of stress, on the theory that oxytocin dampens the stress response.
+**Cortisol.** The body's main stress hormone, released by the adrenal glands. Many oxytocin studies measure it in saliva or blood as a stress marker, on the theory that oxytocin dampens the stress response.
 
 **Crossover trial.** A trial design in which each participant receives both the active treatment and the placebo, in separate periods and random order, so that each person serves as their own comparison. It needs fewer participants than a parallel-group trial but only works for short-acting treatments.
 
@@ -118,7 +118,7 @@ Reading about oxytocin means running into pharmacy law, endocrinology, trial des
 
 **MDMA stimulation test.** A research procedure in which MDMA, which strongly triggers oxytocin release, is given under medical supervision and oxytocin is measured before and after. In the Basel study, oxytocin rose about 8.5-fold in healthy people and not at all in those with vasopressin deficiency [7]. It is not available as routine care.
 
-**Meta-analysis.** A study that pools the results of several trials on the same question to produce one overall estimate. It is only as good as the trials it combines, and pooling many small, short trials does not make them large or long.
+**Meta-analysis.** A study that pools several trials on the same question into one overall estimate. It is only as good as the trials it combines; pooling many small, short trials does not make them large or long.
 
 ## N
 
@@ -130,7 +130,7 @@ Reading about oxytocin means running into pharmacy law, endocrinology, trial des
 
 **Off-label.** Prescribing an approved drug for a use, dose or form that the FDA has not approved. It is legal and common, and the prescriber takes responsibility for the decision. Every oxytocin nasal spray in the US is prescribed off-label, since the only approved uses are in childbirth [4].
 
-**Open-label.** A study in which everyone knows who is getting the drug and there is no placebo group. Open-label results are useful for safety and for generating ideas, but they cannot separate a drug's effect from expectation.
+**Open-label.** A study in which everyone knows who is getting the drug and there is no placebo group. Useful for safety and for generating ideas, but it cannot separate a drug's effect from expectation.
 
 **OXTR.** The gene for the oxytocin receptor, and shorthand for the receptor itself. The receptor sits on cells in the uterus, breast, brain and elsewhere, and oxytocin works by binding to it. Variants in OXTR are studied as one reason people may respond differently to oxytocin.
 
@@ -138,19 +138,19 @@ Reading about oxytocin means running into pharmacy law, endocrinology, trial des
 
 ## P
 
-**Pair bonding.** The lasting attachment between two mates, studied most famously in prairie voles, where oxytocin and vasopressin signaling in reward circuits help form it. It is the animal research behind the "love hormone" label, and it does not transfer simply to human relationships.
+**Pair bonding.** The lasting attachment between two mates, studied most famously in prairie voles, where oxytocin and vasopressin signaling helps form it. It is the animal research behind the "love hormone" label, and it does not transfer simply to humans.
 
-**Peptide.** A short chain of amino acids, smaller than a protein. Oxytocin is a nine-amino-acid peptide. Peptides are digested if swallowed and are fragile in heat, which shapes how oxytocin is stored and delivered.
+**Peptide.** A short chain of amino acids, smaller than a protein. Oxytocin is a nine-amino-acid peptide, digested if swallowed and fragile in heat.
 
 **Pitocin.** The best-known US brand of synthetic oxytocin injection, approved to induce or strengthen labor and to control bleeding after birth [4]. It and its generics are the only FDA-approved forms of oxytocin.
 
-**Placebo-controlled.** A trial in which the comparison group receives an inactive look-alike, such as a saline nasal spray. Without a placebo group, improvements from attention, expectation and the passage of time get credited to the drug.
+**Placebo-controlled.** A trial in which the comparison group receives an inactive look-alike, such as a saline nasal spray. Without one, improvements from attention, expectation and time get credited to the drug.
 
 **Posterior pituitary.** The back lobe of the pituitary gland, at the base of the brain, where oxytocin and vasopressin made in the hypothalamus are stored and released into the blood. Damage here causes vasopressin deficiency and, as the Basel work shows, can take oxytocin with it [7].
 
 **Prader-Willi syndrome.** A rare genetic condition, affecting an estimated 1 in 10,000 to 30,000 people, marked by low muscle tone in infancy and then an insatiable appetite and obesity in childhood [10]. Because oxytocin-producing brain cells are reduced in the syndrome, oxytocin and carbetocin have been tested as treatments for the hunger, so far without a clear success.
 
-**Primary endpoint.** The single measurement a trial names in advance as its main test of whether the treatment worked. A trial that "missed its primary endpoint" failed by its own stated standard, whatever else it found.
+**Primary endpoint.** The measurement a trial names in advance as its main test of whether the treatment worked. A trial that "missed its primary endpoint" failed by its own standard, whatever else it found.
 
 ## R
 
@@ -164,7 +164,7 @@ Reading about oxytocin means running into pharmacy law, endocrinology, trial des
 
 ## T
 
-**Telehealth.** Medical care delivered online or by phone. In the oxytocin market it usually means a questionnaire reviewed by a licensed clinician, a prescription sent to a compounding pharmacy, and a monthly subscription.
+**Telehealth.** Medical care delivered online or by phone. For oxytocin it usually means a questionnaire reviewed by a licensed clinician, a prescription sent to a compounding pharmacy, and a monthly subscription.
 
 **Tinnitus Handicap Inventory (THI).** A 25-item questionnaire that scores how much tinnitus disrupts a person's life, from 0 to 100, with higher scores meaning more handicap [9]. It is the standard outcome measure in tinnitus trials, including the small oxytocin studies.
 
@@ -172,4 +172,4 @@ Reading about oxytocin means running into pharmacy law, endocrinology, trial des
 
 ## V
 
-**Vasopressin.** Also called antidiuretic hormone (ADH) or arginine vasopressin (AVP). A hormone made in the hypothalamus and released from the posterior pituitary that tells the kidneys to conserve water. It differs from oxytocin by two amino acids, is released from the same gland, and its deficiency is the condition in which oxytocin deficiency was first proven [7].
+**Vasopressin.** Also called antidiuretic hormone (ADH) or arginine vasopressin (AVP). Made in the hypothalamus and released from the posterior pituitary, it tells the kidneys to conserve water. It differs from oxytocin by two amino acids, and its deficiency is the condition in which oxytocin deficiency was first proven [7].

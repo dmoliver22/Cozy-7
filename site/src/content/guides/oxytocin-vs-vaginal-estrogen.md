@@ -1,6 +1,6 @@
 ---
 title: "Oxytocin Gel vs Vaginal Estrogen for Menopause Dryness"
-description: "Vaginal estrogen and DHEA have decades of evidence and are approved. Oxytocin gel has 7 small trials and a stalled Phase 3. How they compare, and who might want a non-estrogen option."
+description: "Vaginal estrogen and DHEA are approved, with decades of evidence. Oxytocin gel has 7 small trials and a stalled Phase 3. How they compare and who might want it."
 summary: "Low-dose vaginal estrogen and vaginal DHEA are the proven, approved treatments for menopause dryness. Oxytocin gel improved exam findings in 7 small trials but not pain with sex, and its Phase 3 trial had not started enrolling at last update."
 partnerKey: menopauseCare
 faq:

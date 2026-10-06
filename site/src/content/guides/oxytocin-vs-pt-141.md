@@ -1,6 +1,6 @@
 ---
 title: "Oxytocin vs PT-141 (Bremelanotide): What Each Actually Does"
-description: "Bremelanotide (Vyleesi) is FDA-approved for low desire in premenopausal women. Oxytocin is approved for no sexual use. Mechanism, trials, side effects and cost compared."
+description: "Bremelanotide (Vyleesi) is FDA-approved for low desire in premenopausal women. Oxytocin is approved for no sexual use. Mechanism, trials, side effects and cost."
 summary: "Two peptides sold side by side for sex, with very different records: bremelanotide passed two trials in 1,247 women and won FDA approval, while oxytocin has 88 people of evidence and tied with placebo in the one trial that mattered."
 partnerKey: sexualHealthCare
 faq:
