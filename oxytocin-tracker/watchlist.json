@@ -1,0 +1,53 @@
+{
+  "purpose": "Queries and pages to re-check on each tracking run. Used by hand or by a scheduled routine.",
+  "registry_queries": [
+    "ClinicalTrials.gov: intervention=oxytocin, first posted since last run",
+    "ClinicalTrials.gov: intervention=oxytocin, status changed since last run (esp. COMPLETED, results posted)",
+    "ClinicalTrials.gov: new registration containing TNX-2900 or BHV-1955",
+    "PubMed: intranasal oxytocin randomized (last 30 days)",
+    "PubMed: neurophysin OR 'oxytocin deficiency' (last 30 days)"
+  ],
+  "catalysts": [
+    {"what": "TNX-2900 Phase 2 first patient dosed / NCT registration", "expected": "Q1 2027", "cluster": "Pipeline"},
+    {"what": "BHV-1955 IND or first-in-human registration", "expected": "unknown; preclinical as of May 2026 R&D Day", "cluster": "Tinnitus"},
+    {"what": "OxyPLEASURE (NCT06808516) primary completion", "expected": "Dec 2026", "cluster": "Deficiency / Sexual"},
+    {"what": "PHOENIX (NCT07361263) completion", "expected": "Feb 2027", "cluster": "Deficiency / Testing"},
+    {"what": "Benzodiazepine-withdrawal trial (NCT06757517) publication", "expected": "2027", "cluster": "Conditions"},
+    {"what": "VA PTSD monotherapy trial (NCT04228289) publication", "expected": "2026-2027", "cluster": "PTSD"},
+    {"what": "VA couples trial (NCT06194851) interim news or protocol paper", "expected": "ongoing to 2028", "cluster": "Relationships"},
+    {"what": "FDA / state board action on compounded oxytocin telehealth marketing", "expected": "any time", "cluster": "Sourcing"}
+  ],
+  "serp_queries_to_rerun": [
+    "oxytocin marriage counseling",
+    "oxytocin couples therapy",
+    "oxytocin tinnitus",
+    "BHV-1955 oxytocin",
+    "oxytocin deficiency symptoms",
+    "oxytocin test neurophysin",
+    "oxytocin PSSD",
+    "oxytocin menopause vaginal atrophy",
+    "does intranasal oxytocin reach the brain",
+    "oxytocin nasal spray cost per month"
+  ],
+  "competitor_pages": [
+    "https://oxytocinbio.com/ (existence unverified)",
+    "https://peptidemind.com/peptides/oxytocin",
+    "https://peptidewiki.co/guides/dosage-guides/oxytocin-dosage-guide",
+    "https://www.peptidedosingprotocols.com/protocol/oxytocin",
+    "https://thepeptidecatalog.com/articles/oxytocin-buying-guide",
+    "https://www.compoundingfinder.com/medications/oxytocin",
+    "https://joinmochi.com/blog/oxytocin-nasal-spray-benefits-side-effects-how-it-works",
+    "https://trimrx.com/blog/ (oxytocin posts)",
+    "https://www.gethealthspan.com/treatments/oxytocin",
+    "https://www.pushhealth.com/drugs/oxytocin",
+    "https://getheally.com/patients/oxytocin-prescription",
+    "https://tryinvigor.com/plans/buy-oxytocin-nasal-spray/",
+    "https://www.empowerpharmacy.com/drugs/oxytocin-nasal-spray",
+    "https://www.bayviewrx.com/formulations/oxytocin",
+    "https://ubiehealth.com/ (low-oxytocin symptom pages)"
+  ],
+  "blocked_in_cloud_session_2026-10-06": [
+    "clinicaltrials.gov", "oxytocinbio.com", "biohaven.com", "mfmpod.com", "peptidemind.com",
+    "pubmed.ncbi.nlm.nih.gov", "sec.gov", "patents.google.com", "and essentially every other direct fetch"
+  ]
+}
