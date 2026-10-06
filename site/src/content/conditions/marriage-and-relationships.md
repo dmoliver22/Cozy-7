@@ -25,7 +25,7 @@ faq:
   - q: "Can I join the VA oxytocin couples therapy trial?"
     a: "The trial, NCT06194851, is run by VA San Diego and is recruiting veterans with PTSD and their partners. The veteran takes oxytocin or placebo before each of eight brief couples therapy sessions. If you are a veteran with PTSD, ask your VA provider about it. If you are not, there is no oxytocin couples trial open to the general public that we can find."
   - q: "What about the My First Million podcast idea of oxytocin dosing for marriages?"
-    a: "On 5 October 2026 the podcast led with oxytocin dosing for marriage as a business idea, attributed to a comment by Palmer Luckey. It is an idea, not a product or a study. The research summarized on this page is the entire human evidence base, and the one adequately sized trial of oxytocin added to couples therapy found no benefit. Any company built on this idea would be selling ahead of the evidence."
+    a: "On 5 October 2026 the podcast led with oxytocin dosing for marriage as a business idea, reviving a remark Palmer Luckey made on the same show in October 2022. It is an idea, not a product or a study. The research summarized on this page is the entire human evidence base, and the one adequately sized trial of oxytocin added to couples therapy found no benefit. Any company built on this idea would be selling ahead of the evidence."
   - q: "Could oxytocin make a bad relationship worse?"
     a: "Possibly. A 2011 review of human oxytocin studies found that effects depend heavily on the person and the situation, and that oxytocin can sharpen attention to negative social cues as well as positive ones. In a relationship with distrust, resentment, or fear, that is not obviously helpful. This is one reason experts pushed back when a clinic started giving it to couples in therapy in 2011."
   - q: "What actually works for a marriage in trouble?"
@@ -118,7 +118,7 @@ From there it is a short jump to "a hormone that makes people bond," and from th
 
 The press made that jump for you. Between 2011 and 2013, headlines promised a nasal spray that might save a marriage. A clinic in Arizona began giving oxytocin to couples in counseling, and TIME ran a piece asking whether the love hormone belonged in couples therapy, with researchers already voicing safety and effectiveness concerns [6].
 
-The idea is back. On 5 October 2026, the business podcast My First Million opened with "oxytocin dosing for marriage" as a startup idea, attributed to a comment by Palmer Luckey [8].
+The idea is back. On 5 October 2026, the business podcast My First Million opened with "oxytocin dosing for marriage" as a startup idea, reviving a remark Palmer Luckey had made on the same show in October 2022 [8].
 
 A same-day write-up called it "the next Ozempic" for marriages [9]. Telehealth companies already sell compounded oxytocin spray for "intimacy" at roughly $99 to $206 a month [10][11].
 

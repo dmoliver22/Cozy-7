@@ -55,7 +55,7 @@ Third, oxytocin may simply not control hunger in Prader-Willi the way the neuron
 
 Nobody knows which reading is correct. That is why the TNX-2900 trial matters more than its size suggests. A positive result would rescue the second reading and keep nasal oxytocin alive as a drug class. A negative result, on top of carbetocin, would make the first or third reading hard to escape, and would weigh on every program that depends on nasal oxytocin reaching the brain, from tinnitus to couples therapy.
 
-With a Q1 2027 start and a 12-week treatment period in a rare disease, results are unlikely before 2028.
+Tonix's guidance has since moved again, to the second half of 2027. With a 12-week treatment period in a rare disease, results are unlikely before late 2028.
 
 ## What we changed on the site
 

@@ -1,6 +1,6 @@
 ---
 title: "A Top Business Podcast Pitched 'Oxytocin Dosing for Marriage.' Here Is What the Evidence Says."
-description: "My First Million episode 868 led with oxytocin dosing as a marriage-saving business idea, attributed to Palmer Luckey. The couples research does not support it."
+description: "My First Million episode 868 revived Palmer Luckey's 2022 idea of oxytocin dosing as a marriage-saving business. The couples research does not support it."
 date: 2026-10-05
 tags: ["relationships", "culture"]
 affects: ["marriage-and-relationships"]
@@ -47,7 +47,7 @@ sources:
 
 On 5 October 2026, the business podcast My First Million released episode 868. The show notes list "Oxytocin dosing" as the first segment, starting at 3:08, followed by "Loneliness solutions" and "Faith-based businesses" [1][2]. A same-day aggregator post carried the episode under the headline "The next Ozempic might fix marriages" [3].
 
-Hosts Shaan Puri and Sam Parr framed oxytocin dosing as a business idea, and the idea was attributed to a remark by Palmer Luckey, the founder of Oculus and Anduril. We have not located the original Luckey clip or statement, so we cannot say exactly what he proposed. What we can say is that the pitch, as it traveled, was a telehealth-style compounded oxytocin product for couples, modeled on the GLP-1 weight-loss boom.
+Hosts Shaan Puri and Sam Parr framed oxytocin dosing as a business idea. The idea traces to Palmer Luckey, the founder of Oculus and Anduril, who floated "oxytocin doping for marriage counseling" on the same podcast in October 2022 (episode 378), noting that the hormone is cheap and, in his words, barely regulated. The 2026 episode revived it. The pitch, as it traveled this time, was a telehealth-style compounded oxytocin product for couples, modeled on the GLP-1 weight-loss boom.
 
 That idea is not new. Press stories about a "nasal spray that might save a marriage" ran in 2011 to 2013, and experts were already warning then against using oxytocin in couples therapy [9].
 

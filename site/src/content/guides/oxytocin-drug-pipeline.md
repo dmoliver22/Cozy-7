@@ -84,7 +84,7 @@ updated: 2026-10-06
 
 As of October 2026, no oxytocin-based drug is close to approval for anything beyond labor and postpartum bleeding. Two small US companies are the whole commercial field: Biohaven, with a preclinical long-acting nasal oxytocin for tinnitus, and Tonix, with a magnesium-boosted nasal oxytocin for Prader-Willi syndrome and several academic side studies. The one large-pharma program, Acadia's carbetocin for Prader-Willi, failed its Phase 3 in September 2025 and was shut down.
 
-Outside the brain, a Phase 3 trial of an oxytocin vaginal gel for menopause symptoms is enrolling, and Ferring has a lactation drug called merotocin that has been listed in Phase II for years.
+Outside the brain, a Phase 3 trial of an oxytocin vaginal gel for menopause symptoms is enrolling, and Ferring's lactation drug merotocin, long listed as Phase II in drug databases, had its trial terminated in January 2023 after enrolling four participants.
 
 Here is every program, what it rests on, and when you will hear more.
 
@@ -93,10 +93,10 @@ Here is every program, what it rests on, and when you will hear more.
 | Program | Company | Indication | Route | Stage (Oct 2026) | Next catalyst |
 |---|---|---|---|---|---|
 | BHV-1955, long-acting oxytocin | Biohaven | Tinnitus | Nasal | Preclinical [1][2] | IND filing or first trial registration; no date announced |
-| TNX-2900, magnesium-potentiated oxytocin | Tonix | Prader-Willi hyperphagia | Nasal | Phase 2 planned Q1 2027, ages 8 to 17.5 [3][4] | Trial registration and first patient dosed, early 2027 |
+| TNX-2900, magnesium-potentiated oxytocin | Tonix | Prader-Willi hyperphagia | Nasal | Phase 2 now guided for the second half of 2027, ages 8 to 17.5 [3][4] | Trial registration and first patient dosed, late 2027 |
 | TNX-1900, same formulation, higher dose | Tonix | AVP deficiency (FOCUS pilot); investigator-led studies in obesity, binge eating, bone health in autism, social anxiety, migraine | Nasal | Academic pilots; FOCUS dosing since Oct 2025 [5][6] | FOCUS results; no date given |
 | ACP-101, intranasal carbetocin | Acadia | Prader-Willi hyperphagia | Nasal | Discontinued after Phase 3 failure, Sept 2025 [7] | None |
-| Merotocin (FE 202767) | Ferring | Lactation support, mothers of preterm infants | Nasal | Listed Phase II; activity reported, not independently verified [8] | Phase II readout; no date found |
+| Merotocin (FE 202767) | Ferring | Lactation support, mothers of preterm infants | Nasal | Phase II trial terminated January 2023 after four participants; program appears inactive [8] | Phase II readout; no date found |
 | Oxytocin vaginal gel | Oxagon (registry sponsor) | Vulvovaginal atrophy after menopause | Topical | Phase 3, 242 planned participants [9] | Trial completion; date not posted |
 
 Compounded oxytocin nasal sprays sold through telehealth are not in this table. They are not drug development programs. They are the same old molecule, made to order by compounding pharmacies, with no trials behind the uses they are marketed for.
@@ -143,7 +143,7 @@ None in Prader-Willi for this formulation. The relevant evidence is mostly bad n
 
 ### Next catalyst
 
-Registration of the Phase 2 trial on ClinicalTrials.gov and first patient dosed, planned for Q1 2027 [3]. Tonix has not stated why the start slipped a year. With a 12-week treatment period and a rare-disease enrollment pace, topline data are unlikely before 2028.
+Registration of the Phase 2 trial on ClinicalTrials.gov and first patient dosed. Tonix first guided to 2026, then to the first quarter of 2027, and its most recent guidance points to the second half of 2027 [3]. Tonix has not stated why the start keeps slipping. With a 12-week treatment period and a rare-disease enrollment pace, topline data are unlikely before late 2028.
 
 ### What success or failure would mean
 
@@ -169,7 +169,7 @@ Merotocin (FE 202767) is a selective, short-acting peptide that activates the ox
 
 The most recent published work is a 2024 study in Breastfeeding Medicine showing that merotocin was undetectable in breast milk after intravenous doses of up to 20 micrograms in postpartum women [15], a safety question that matters for a drug given to nursing mothers.
 
-Merotocin is still listed as Phase II in drug databases, with a database update in April 2026 reported in our tracking notes. We have found no readout date and no recent company statement. Whether the program is actively advancing is reported, not independently verified.
+Drug databases still carry merotocin as Phase II, but the registered trial was terminated in January 2023 after enrolling only four participants, and we have found no company statement since. Treat the program as dormant unless Ferring says otherwise.
 
 ## Oxytocin vaginal gel: Phase 3 for menopause
 
@@ -181,9 +181,9 @@ The catalyst is trial completion and publication; the registry does not yet give
 
 ## What to watch, in order
 
-1. Q1 2027: Tonix registers and starts the TNX-2900 Phase 2 in Prader-Willi, or delays again.
+1. Second half of 2027: Tonix registers and starts the TNX-2900 Phase 2 in Prader-Willi, or delays a third time.
 2. Any time: Biohaven files an IND or registers a first trial of BHV-1955.
 3. 2027: results from the FOCUS pilot at Massachusetts General Hospital.
-4. Unknown: completion of the oxytocin gel Phase 3 and any word on merotocin.
+4. Unknown: completion of the oxytocin gel Phase 3, and whether Ferring ever revives merotocin.
 
 We update this page when any of these moves. For the biology behind all of it, start with [what oxytocin is and what it actually does](/guides/what-is-oxytocin/).

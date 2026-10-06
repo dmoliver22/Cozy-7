@@ -102,7 +102,7 @@ One large compounder that runs both 503A and 503B facilities makes its oxytocin 
 
 There used to be one. Syntocinon Nasal Spray was approved in 1960 to help nursing mothers let down milk. The manufacturer withdrew it in the mid-1990s for commercial reasons, and no intranasal oxytocin has been manufactured for the US market since [8]. A company licensed the US rights in 2013, but no approval followed [9].
 
-Australia still has a registered Syntocinon 40 IU/mL nasal spray on its therapeutic goods register [10]. So the product is not impossible to make or approve. There has simply been no company willing to pay for US trials of a cheap, off-patent hormone for a small indication.
+Australia's medicines register lists a Syntocinon 40 IU/mL nasal spray, but the entry is for export only and the product may not be supplied inside Australia [10]. Switzerland, Portugal and Brazil still market the spray, for milk letdown in nursing mothers, not for mood or bonding. So the product is not impossible to make or approve. There has simply been no company willing to pay for US trials of a cheap, off-patent hormone for a small indication.
 
 That history matters because it tells you what the spray was ever approved for anywhere: milk let-down. Not bonding, not anxiety, not sex, not tinnitus.
 

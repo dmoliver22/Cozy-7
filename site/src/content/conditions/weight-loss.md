@@ -140,7 +140,7 @@ Plain read: this was the largest, best-run test of an oxytocin-type drug for app
 
 Tonix Pharmaceuticals is pursuing a different bet. Its TNX-2900 is intranasal oxytocin with added magnesium, which the company says strengthens oxytocin's action at its receptor and avoids a problem seen in animal studies where high doses stop working [10].
 
-A Phase 2 trial in Prader-Willi syndrome, ages 8 to 17.5, is planned for the first quarter of 2027, pushed back from 2026. It will randomize participants to three dose levels or placebo for 12 weeks [9].
+A Phase 2 trial in Prader-Willi syndrome, ages 8 to 17.5, is now guided for the second half of 2027, pushed back twice from an original 2026 start. It will randomize participants to three dose levels or placebo for 12 weeks [9].
 
 TNX-2900 holds Orphan Drug and Rare Pediatric Disease designations [10]. Those designations speed up regulatory review for rare diseases. They say nothing about whether the drug works, and no efficacy data exist yet.
 
@@ -164,7 +164,7 @@ It is led by Elizabeth Lawson, who ran the 2015 single-dose study. The registry 
 
 NCT05664516 is a registered 8-week trial of intranasal oxytocin versus placebo in binge eating disorder. We could not confirm its current status or any results [5].
 
-In Prader-Willi syndrome, the Tonix Phase 2 of TNX-2900 is planned to start in the first quarter of 2027, so results would come no earlier than 2028 [9].
+In Prader-Willi syndrome, the Tonix Phase 2 of TNX-2900 is now guided to start in the second half of 2027, so results would come no earlier than late 2028 [9].
 
 We found no company running an oxytocin trial for general obesity. After Acadia's exit, the remaining work is academic or investigator-led.
 

@@ -17,7 +17,7 @@
    "company": "Tonix Pharmaceuticals",
    "indication": "Prader-Willi syndrome hyperphagia",
    "route": "Intranasal",
-   "stage": "IND cleared; Phase 2 planned Q1 2027 (delayed from 2026)",
+   "stage": "IND cleared; Phase 2 guided for H2 2027 (slipped from 2026 and Q1 2027)",
    "latest": "Phase 2 to randomize ages 8-17.5 to three dose levels or placebo 1:1:1:1 for 12 weeks; Orphan + Rare Pediatric Disease designations",
    "watch": "NCT registration; first patient dosed"
   },
@@ -37,9 +37,9 @@
    "company": "Ferring",
    "indication": "Lactation support in preterm mothers",
    "route": "Intranasal",
-   "stage": "Phase II",
-   "latest": "Undetectable in breast milk after IV dosing (Breastfeeding Medicine 2024); Patsnap entry updated Apr 2026",
-   "watch": "Phase II readout"
+   "stage": "Phase II trial terminated Jan 2023 (4 enrolled); dormant",
+   "latest": "NCT02545127 terminated January 2023 after enrolling four participants; no company statement since. Undetectable in breast milk after IV dosing (Breastfeeding Medicine 2024).",
+   "watch": "Any Ferring statement reviving the program"
   },
   {
    "program": "Generic compounded oxytocin",
